@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "name_noDefault": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "psč_stavby": {
+      "type": "string"
+    },
+    "obec_stavby": {
+      "type": "string"
+    },
+    "attachments": {
+      "type": "object",
+      "properties": {
+        "files": {
+          "type": "array",
+          "title": "Multiple files",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    }
+  },
+  "required": ["name", "name_noDefault", "date", "psč_stavby", "obec_stavby"]
+}
