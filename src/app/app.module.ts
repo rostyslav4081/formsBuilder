@@ -15,6 +15,8 @@ import { LangComponent } from './lang.control';
 import {JsonFormsAngularService, JsonFormsModule} from "@jsonforms/angular";
 // import {Custom2AutocompleteComponent} from "./custom2.autocomplete";
 import {AutoCompleteModule} from "primeng/autocomplete";
+import {InputTextModule} from "primeng/inputtext";
+import {MessageModule} from "primeng/message";
 
 
 
@@ -37,6 +39,8 @@ import {AutoCompleteModule} from "primeng/autocomplete";
     HttpClientModule,
     JsonSchemaFormModule,
     AutoCompleteModule,
+    InputTextModule,
+    MessageModule,
 
 
   ],

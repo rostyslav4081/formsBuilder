@@ -1,27 +1,6 @@
 {
-  "definitions": {
-    "order": {
-      "type": "object",
-      "properties": {
-        "id": {"type": "string"},
-        "firstname": { "type": "string" },
-
-
-
-        "description": {
-          "type": "string"
-        }
-
-
-
-
-
-
-
-      }
-    }
+  "type": "object",
+  "properties": {
+    "firstname": { "type": "string" }
   }
-
-
-
 }

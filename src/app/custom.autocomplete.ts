@@ -18,28 +18,26 @@ const fetchSuggestions = (input: string): Observable<string[]> => {
 @Component({
   selector: 'jsonforms-custom-autocomplete',
   template: `
-    <mat-form-field fxFlex>
-      <mat-label>{{ label }}</mat-label>
+    <div class="p-fluid">
+      <label>{{ label }}</label>
       <input
-        matInput
+        pInputText
         type="text"
         (input)="onChange($event)"
         placeholder="{{ description }}"
         [id]="id"
         [formControl]="form"
-        [matAutocomplete]="auto"
-      >
-      <mat-autocomplete
-        autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="onSelect($event)">
-        <mat-option *ngIf="isLoading" class="is-loading"><mat-spinner diameter="30"></mat-spinner></mat-option>
-        <ng-container *ngIf="!isLoading">
-          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-            {{ option }}
-          </mat-option>
-        </ng-container>
-      </mat-autocomplete>
-      <mat-error>{{ error }}</mat-error>
-    </mat-form-field>
+        [pAutoComplete]="filteredOptions"
+        (onSelect)="onSelect($event)"
+      />
+      <p-autoComplete [suggestions]="filteredOptions" [dropdown]="true">
+        <ng-template let-option pTemplate="item">
+          {{ option }}
+        </ng-template>
+      </p-autoComplete>
+      <p-message severity="error" *ngIf="error">{{ error }}</p-message>
+    </div>
+
   `
 })
 export class CustomAutocompleteControlRenderer extends AutocompleteControlRenderer {
