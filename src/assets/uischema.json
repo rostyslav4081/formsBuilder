@@ -4,6 +4,54 @@
     {
       "type": "Control",
       "scope": "#/properties/firstname"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/lastname"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/phoneNumber"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/email"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/pickerDate",
+      "options": {
+        "format": "date"
+      }
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/postCode"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/nameBuilding"
+        }
+      ]
+    },
+    {
+      "type": "Control",
+      "label": "Čím více informací, tím přesnější nabídka",
+      "scope": "#/properties/hugeLabel"
+    },
+    {
+      "type": "Control",
+      "label": "Pro optimální variantu potřebujeme vědět co nejvíc o vašem vysněném domě - rozměry, preference tvárnic, energetického standardu apod. Čím víc nám toho o svém domu napíšete, tím lépe.",
+      "scope": "#/properties/smallLabel"
+    },
+    {
+      "type": "Control",
+      "label": "Požadované přílohy k nacenění projektu: půdorysy, pohledy, řez (vkládejte přílohy do max. 80MB celkem):",
+      "scope": "#/properties/fileUpload"
     }
+
   ]
 }

@@ -20,20 +20,13 @@ const fetchSuggestions = (input: string): Observable<string[]> => {
   template: `
     <div class="p-fluid">
       <label>{{ label }}</label>
-      <input
-        pInputText
-        type="text"
-        (input)="onChange($event)"
-        placeholder="{{ description }}"
-        [id]="id"
-        [formControl]="form"
-      />
+
 
     </div>
 
   `
 })
-export class CustomAutocompleteControlRenderer extends AutocompleteControlRenderer {
+export class SmallLabelAutocompleteRenderer extends AutocompleteControlRenderer {
 
   isLoading!: boolean;
 

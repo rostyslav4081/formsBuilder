@@ -1,6 +1,18 @@
 {
   "type": "object",
   "properties": {
-    "firstname": { "type": "string" }
+    "firstname": { "type": "string" },
+    "lastname":  { "type": "string"},
+    "phoneNumber": {"type": "string"},
+    "email": { "type": "string", "format": "email" },
+    "pickerDate": { "type": "string","format": "date"},
+    "postCode": { "type": "string"},
+    "nameBuilding": { "type": "string" },
+    "hugeLabel": {"type": "string"},
+    "smallLabel": {"type": "string"},
+    "fileUpload": {
+      "type": "object"
+
+    }
   }
 }

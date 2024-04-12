@@ -20,20 +20,20 @@ const fetchSuggestions = (input: string): Observable<string[]> => {
   template: `
     <div class="p-fluid">
       <label>{{ label }}</label>
-      <input
-        pInputText
-        type="text"
+      <p-fileUpload
+
+        mode="basic"
         (input)="onChange($event)"
-        placeholder="{{ description }}"
+
         [id]="id"
-        [formControl]="form"
-      />
+        [formControl]="form">
+      </p-fileUpload>
 
     </div>
 
   `
 })
-export class CustomAutocompleteControlRenderer extends AutocompleteControlRenderer {
+export class FileUploadAutocompleteControlRenderer extends AutocompleteControlRenderer {
 
   isLoading!: boolean;
 

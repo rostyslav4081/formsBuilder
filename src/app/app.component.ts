@@ -19,16 +19,54 @@ import schemaAsset from '../assets/schema.json';
 import dataAsset from './data';
 import { parsePhoneNumber } from 'libphonenumber-js';
 import { DateAdapter } from '@angular/material/core';
+import {CustomDateAutocompleteControlRenderer} from "./customDate.autocomplete";
+import {HugeLabelAutocompleteControlRenderer} from "./hugeLabel.autocomplete";
+import {SmallLabelAutocompleteRenderer} from "./smallLabel.autocomplete";
+import {FileUploadAutocompleteControlRenderer} from "./fileUpload.autocomplete";
 
 
 
 
-const departmentTester: Tester = and(
+const pFirstnameInputTester: Tester = and(
   schemaTypeIs('string'),
   scopeEndsWith('firstname')
 );
-
-
+const pLastnameInputTester: Tester = and(
+  schemaTypeIs('string'),
+  scopeEndsWith('lastname')
+);
+const pPhoneNumberInputTester: Tester = and(
+  schemaTypeIs('string'),
+  scopeEndsWith('phoneNumber')
+);
+const pEmailInputTester: Tester = and(
+  schemaTypeIs('string'),
+  scopeEndsWith('email')
+);
+const pDateInputTester: Tester = and(
+  schemaTypeIs('string'),
+  scopeEndsWith('pickerDate')
+);
+const pPostCodeInputTester: Tester = and(
+  schemaTypeIs('string'),
+  scopeEndsWith('postCode')
+);
+const pNameBuildingInputTester: Tester = and(
+  schemaTypeIs('string'),
+  scopeEndsWith('nameBuilding')
+);
+const pHugeLabelTester: Tester = and(
+  schemaTypeIs('string'),
+  scopeEndsWith('hugeLabel')
+);
+const pSmallLabelTester: Tester = and(
+  schemaTypeIs('string'),
+  scopeEndsWith('smallLabel')
+);
+const pFileUploadTester: Tester = and(
+  schemaTypeIs('string'),
+  scopeEndsWith('fileUpload')
+);
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -38,8 +76,16 @@ export class AppComponent {
 
   renderers = [
     ...angularMaterialRenderers,
-    { tester: rankWith(5, departmentTester), renderer: CustomAutocompleteControlRenderer }
-
+    { tester: rankWith(5, pFirstnameInputTester), renderer: CustomAutocompleteControlRenderer },
+    { tester: rankWith(5, pLastnameInputTester), renderer: CustomAutocompleteControlRenderer },
+    { tester: rankWith(5, pPhoneNumberInputTester), renderer: CustomAutocompleteControlRenderer },
+    { tester: rankWith(5, pEmailInputTester), renderer: CustomAutocompleteControlRenderer },
+    { tester: rankWith(5, pDateInputTester), renderer: CustomDateAutocompleteControlRenderer },
+    { tester: rankWith(5, pPostCodeInputTester), renderer: CustomAutocompleteControlRenderer },
+    { tester: rankWith(5, pNameBuildingInputTester), renderer: CustomAutocompleteControlRenderer },
+    { tester: rankWith(5, pHugeLabelTester), renderer: HugeLabelAutocompleteControlRenderer },
+    { tester: rankWith(5, pSmallLabelTester), renderer: SmallLabelAutocompleteRenderer },
+    { tester: rankWith(5, pFileUploadTester), renderer: FileUploadAutocompleteControlRenderer}
 
 
 

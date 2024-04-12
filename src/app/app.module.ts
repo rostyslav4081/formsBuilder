@@ -13,10 +13,16 @@ import { LangComponent } from './lang.control';
 
 
 import {JsonFormsAngularService, JsonFormsModule} from "@jsonforms/angular";
-// import {Custom2AutocompleteComponent} from "./custom2.autocomplete";
+
 import {AutoCompleteModule} from "primeng/autocomplete";
 import {InputTextModule} from "primeng/inputtext";
 import {MessageModule} from "primeng/message";
+import {CustomDateAutocompleteControlRenderer} from "./customDate.autocomplete";
+import {CalendarModule} from "primeng/calendar";
+import {HugeLabelAutocompleteControlRenderer} from "./hugeLabel.autocomplete";
+import {SmallLabelAutocompleteRenderer} from "./smallLabel.autocomplete";
+import {FileUploadAutocompleteControlRenderer} from "./fileUpload.autocomplete";
+import {FileUploadModule} from "primeng/fileupload";
 
 
 
@@ -27,7 +33,10 @@ import {MessageModule} from "primeng/message";
     CustomAutocompleteControlRenderer,
     LangComponent,
     DataDisplayComponent,
-    // Custom2AutocompleteComponent
+    CustomDateAutocompleteControlRenderer,
+    HugeLabelAutocompleteControlRenderer,
+    SmallLabelAutocompleteRenderer,
+    FileUploadAutocompleteControlRenderer
   ],
   imports: [
     BrowserModule,
@@ -41,6 +50,8 @@ import {MessageModule} from "primeng/message";
     AutoCompleteModule,
     InputTextModule,
     MessageModule,
+    CalendarModule,
+    FileUploadModule,
 
 
   ],
