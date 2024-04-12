@@ -14,7 +14,7 @@ export class DataDisplayComponent extends JsonFormsControl {
     super(service);
   }
 
-  public  override mapAdditionalProps(props: ControlProps) {
+  public override mapAdditionalProps(props: ControlProps) {
     this.dataAsString = JSON.stringify(props.data, null, 2);
   }
 }

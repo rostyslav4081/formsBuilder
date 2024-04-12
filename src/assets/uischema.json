@@ -1,66 +1,9 @@
 {
   "type": "VerticalLayout",
   "elements": [
-        {
-          "type": "Control",
-          "scope": "#/properties/name",
-          "label": "Jméno *:"
-        },
-        {
-          "type": "Control",
-          "scope": "#/properties/name_noDefault",
-          "label": "Příjmení *:"
-        },
-        {
-          "type": "Control",
-          "scope": "#/properties/name_noDefault",
-          "label": "Telefonní číslo *:"
-        },
-        {
-          "type": "Control",
-          "scope": "#/properties/name_noDefault",
-          "label": "E-mail *:"
-        },
-        {
-          "type": "Control",
-          "scope": "#/properties/date",
-          "label": "Kdy chcete začít stavět? *:"
-        },
-        {
-          "type": "HorizontalLayout",
-          "elements": [
-            {
-              "type": "Control",
-              "scope": "#/properties/name_noDefault",
-              "label": "PSČ stavby *:"
-            },
-            {
-              "type": "Control",
-              "scope": "#/properties/name_noDefault",
-              "label": "Obec stavby *:"
-            }
-          ]
-        },
-
     {
-      "type": "Label",
-      "text": "Čím více informací, tím přesnější nabídka"
-    },
-    {
-      "type": "Label",
-      "text": "Pro optimální variantu potřebujeme vědět co nejvíc o vašem vysněném domě - rozměry, preference tvárnic, energetického standardu apod. Čím víc nám toho o svém domu napíšete, tím lépe."
-    },
-    {
-         "files": {
-           "ui:widget": "file",
-           "ui:options": {
-             "accept": ".pdf,.doc,.docx,.txt,image/*"
-           }
-         }
+      "type": "Control",
+      "scope": "#/properties/firstname"
     }
-
-
   ]
-
-
 }

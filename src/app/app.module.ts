@@ -13,7 +13,9 @@ import { LangComponent } from './lang.control';
 
 
 import {JsonFormsAngularService, JsonFormsModule} from "@jsonforms/angular";
-import {UploaderFilesComponent} from "./uploaderFiles.control";
+// import {Custom2AutocompleteComponent} from "./custom2.autocomplete";
+import {AutoCompleteModule} from "primeng/autocomplete";
+
 
 
 
@@ -23,7 +25,7 @@ import {UploaderFilesComponent} from "./uploaderFiles.control";
     CustomAutocompleteControlRenderer,
     LangComponent,
     DataDisplayComponent,
-    UploaderFilesComponent
+    // Custom2AutocompleteComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,7 @@ import {UploaderFilesComponent} from "./uploaderFiles.control";
     MatProgressSpinnerModule,
     HttpClientModule,
     JsonSchemaFormModule,
+    AutoCompleteModule,
 
 
   ],

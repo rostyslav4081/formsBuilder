@@ -19,14 +19,15 @@ import schemaAsset from '../assets/schema.json';
 import dataAsset from './data';
 import { parsePhoneNumber } from 'libphonenumber-js';
 import { DateAdapter } from '@angular/material/core';
-import {UploaderFilesComponent} from "./uploaderFiles.control";
+
 
 
 
 const departmentTester: Tester = and(
   schemaTypeIs('string'),
-  scopeEndsWith('department')
+  scopeEndsWith('firstname')
 );
+
 
 @Component({
   selector: 'app-root',
@@ -37,40 +38,11 @@ export class AppComponent {
 
   renderers = [
     ...angularMaterialRenderers,
-    { tester: rankWith(5, departmentTester), renderer: CustomAutocompleteControlRenderer },
+    { tester: rankWith(5, departmentTester), renderer: CustomAutocompleteControlRenderer }
 
 
-    {
-      renderer: DataDisplayComponent,
-      tester: rankWith(
-        6,
-        and(
-          isControl,
-          scopeEndsWith('___data')
-        )
-      )
-    },
-    {
-      renderer: LangComponent,
-      tester: rankWith(
-        6,
-        and(
-          isControl,
-          optionIs('lang', true)
-        )
-      )
-    },
-    {
-      renderer: UploaderFilesComponent,
-      tester: rankWith(
-        6,
-        and(
-          isControl,
-          optionIs('lang', true)
 
-        )
-      )
-    },
+
 
   ];
   uischema = uischemaAsset;
@@ -88,7 +60,7 @@ export class AppComponent {
     dateAdapter.setLocale(this.i18n.locale);
     this.ajv.addFormat('tel', maybePhoneNumber => {
       try {
-        parsePhoneNumber(maybePhoneNumber, 'DE');
+        parsePhoneNumber(maybePhoneNumber, 'CZ');
         return true;
       } catch (_) {
         return false;
