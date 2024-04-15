@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { isDateControl, RankedTester, rankWith } from '@jsonforms/core';
 import { JsonFormsAngularService, JsonFormsControl } from '@jsonforms/angular';
-import {BooleanPrimeNgControlRenderer} from "./boolean.render";
+
 
 @Component({
   selector: 'DateControlRenderer',
@@ -14,7 +14,7 @@ import {BooleanPrimeNgControlRenderer} from "./boolean.render";
         (input)="onChange($event)"
         [id]="id"
         [formControl]="form"
-        [pCalendar]="datepicker"
+
         (focus)="focused = true"
         (focusout)="focused = false"
       />

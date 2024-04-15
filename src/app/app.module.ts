@@ -1,15 +1,15 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
+
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JsonSchemaFormModule } from '@ajsf/core';
 import { JsonFormsAngularMaterialModule } from '@jsonforms/angular-material';
 import { AppComponent } from './app.component';
-import { CustomAutocompleteControlRenderer } from './custom.autocomplete';
+
 import { DataDisplayComponent } from './data.control';
-import { LangComponent } from './lang.control';
+
 
 
 import {JsonFormsAngularService, JsonFormsModule} from "@jsonforms/angular";
@@ -17,12 +17,25 @@ import {JsonFormsAngularService, JsonFormsModule} from "@jsonforms/angular";
 import {AutoCompleteModule} from "primeng/autocomplete";
 import {InputTextModule} from "primeng/inputtext";
 import {MessageModule} from "primeng/message";
-import {CustomDateAutocompleteControlRenderer} from "./customDate.autocomplete";
+
 import {CalendarModule} from "primeng/calendar";
-import {HugeLabelAutocompleteControlRenderer} from "./hugeLabel.autocomplete";
-import {SmallLabelAutocompleteRenderer} from "./smallLabel.autocomplete";
-import {FileUploadAutocompleteControlRenderer} from "./fileUpload.autocomplete";
+
+
+
 import {FileUploadModule} from "primeng/fileupload";
+import {BooleanPrimeNgControlRenderer} from "./primengrenders/controls/boolean.render";
+import {ButtonPrimeNgRenderer} from "./primengrenders/controls/btn.render";
+import {DatePrimeNgControlRenderer} from "./primengrenders/controls/date.render";
+import {FileInputPrimeNgRenderer} from "./primengrenders/controls/fileinput.render";
+import {LabelPrimeNgRenderer} from "./primengrenders/controls/label.render";
+import {TextPrimeNgControlRenderer} from "./primengrenders/controls/text.render";
+import {TextAreaPrimeNgRenderer} from "./primengrenders/controls/textarea.render";
+import {HorizontalLayoutPrimeNgRenderer} from "./primengrenders/layouts/horizontal-layout.renderer";
+import {LayoutChildrenRenderPropsPipe, LayoutRenderer} from "./primengrenders/layouts/layout.renderer";
+import {VerticalLayoutPrimeNgRenderer} from "./primengrenders/layouts/vertical-layout.renderer";
+import {CheckboxModule} from "primeng/checkbox";
+import {TooltipModule} from "primeng/tooltip";
+import {PaginatorModule} from "primeng/paginator";
 
 
 
@@ -30,20 +43,27 @@ import {FileUploadModule} from "primeng/fileupload";
 @NgModule({
   declarations: [
     AppComponent,
-    CustomAutocompleteControlRenderer,
-    LangComponent,
+    BooleanPrimeNgControlRenderer,
+    ButtonPrimeNgRenderer,
     DataDisplayComponent,
-    CustomDateAutocompleteControlRenderer,
-    HugeLabelAutocompleteControlRenderer,
-    SmallLabelAutocompleteRenderer,
-    FileUploadAutocompleteControlRenderer
+    DatePrimeNgControlRenderer,
+    FileInputPrimeNgRenderer,
+    LabelPrimeNgRenderer,
+    TextPrimeNgControlRenderer,
+    TextAreaPrimeNgRenderer,
+    HorizontalLayoutPrimeNgRenderer,
+    LayoutChildrenRenderPropsPipe,
+    VerticalLayoutPrimeNgRenderer,
+    LayoutRenderer,
+
+
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     JsonFormsModule,
     JsonFormsAngularMaterialModule,
-    MatAutocompleteModule,
+
     MatProgressSpinnerModule,
     HttpClientModule,
     JsonSchemaFormModule,
@@ -52,13 +72,16 @@ import {FileUploadModule} from "primeng/fileupload";
     MessageModule,
     CalendarModule,
     FileUploadModule,
+    CheckboxModule,
+    TooltipModule,
+    PaginatorModule,
 
 
   ],
   schemas: [],
 
   exports: [
-    CustomAutocompleteControlRenderer
+
   ],
   providers: [JsonFormsAngularService],
   bootstrap: [AppComponent]

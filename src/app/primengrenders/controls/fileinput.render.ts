@@ -50,5 +50,5 @@ export class FileInputPrimeNgRenderer extends JsonFormsControl {
 
 export const FileInputPrimeNgRendererTester: RankedTester = rankWith(
   2,
-  (control) => control.data.type === 'string' && control.data.format === 'file'
+  (control) => control.type === 'file'
 );

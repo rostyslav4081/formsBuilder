@@ -11,7 +11,7 @@
     "hugeLabel": {"type": "string"},
     "smallLabel": {"type": "string"},
     "fileUpload": {
-      "type": "object"
+      "type": "file"
 
     }
   }

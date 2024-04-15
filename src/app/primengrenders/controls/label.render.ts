@@ -13,7 +13,7 @@ import {
   uiTypeIs,
 } from '@jsonforms/core';
 import { Subscription } from 'rxjs';
-import {BooleanPrimeNgControlRenderer} from "./boolean.render";
+
 
 @Component({
   selector: 'LabelRenderer',
@@ -23,6 +23,7 @@ import {BooleanPrimeNgControlRenderer} from "./boolean.render";
       :host {
         flex: 1 1 auto;
       }
+
       .custom-headline {
         font-size: 1.25rem;
         font-weight: 500;
@@ -30,6 +31,7 @@ import {BooleanPrimeNgControlRenderer} from "./boolean.render";
       }
     `,
   ],
+
 })
 export class LabelPrimeNgRenderer  extends JsonFormsBaseRenderer<LabelElement>
   implements OnDestroy, OnInit

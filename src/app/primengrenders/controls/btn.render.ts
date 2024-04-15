@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { JsonFormsAngularService, JsonFormsControl } from '@jsonforms/angular';
 import { isMultiLineControl, RankedTester, rankWith } from '@jsonforms/core';
-import {BooleanPrimeNgControlRenderer} from "./boolean.render";
+
 
 @Component({
   selector: 'ButtonRenderer',
@@ -36,6 +36,6 @@ export class ButtonPrimeNgRenderer extends JsonFormsControl {
 export const ButtonPrimeNgRendererTester: RankedTester = rankWith(
   2,
   (control) => {
-    return control.data?.type === 'string' && control.data?.format === 'uri';
+    return control.type === 'btn'
   }
 );
