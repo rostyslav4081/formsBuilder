@@ -36,6 +36,7 @@ import {VerticalLayoutPrimeNgRenderer} from "./primengrenders/layouts/vertical-l
 import {CheckboxModule} from "primeng/checkbox";
 import {TooltipModule} from "primeng/tooltip";
 import {PaginatorModule} from "primeng/paginator";
+import {InputTextareaModule} from "primeng/inputtextarea";
 
 
 
@@ -75,6 +76,7 @@ import {PaginatorModule} from "primeng/paginator";
     CheckboxModule,
     TooltipModule,
     PaginatorModule,
+    InputTextareaModule,
 
 
   ],

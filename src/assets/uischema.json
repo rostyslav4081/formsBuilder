@@ -51,7 +51,32 @@
       "type": "Control",
       "label": "Požadované přílohy k nacenění projektu: půdorysy, pohledy, řez (vkládejte přílohy do max. 80MB celkem):",
       "scope": "#/properties/fileUpload"
+    },
+    {
+      "type": "Control",
+      "label": "Zpráva pro nás:",
+      "scope": "#/properties/textArea",
+      "option": {
+        "multi": true
+      }
+    },
+    {
+      "type": "Control",
+      "label": "Odesláním beru na vědomí tyto informace o zpracování osobních údajů a poučení o mých právech.",
+      "scope": "#/properties/textBefore"
+    },
+    {
+
+          "type": "Control",
+          "label": "Souhlasím se zpracováním osobních údajů v rozsahu a za podmínek uvedených zde.",
+          "scope": "#/properties/done",
+          "options": {
+            "multi": true
+          }
+
+
     }
+
 
   ]
 }

@@ -8,25 +8,18 @@ import { JsonFormsAngularService, JsonFormsControl } from '@jsonforms/angular';
   template: `
     <div [ngStyle]="{ display: hidden ? 'none' : '' }" class="p-field">
       <label>{{ label }}</label>
-      <input
-        type="text"
-        pInputText
+
+
+      <p-calendar
+        [formControl]="form"
         (input)="onChange($event)"
         [id]="id"
-        [formControl]="form"
-
+        type="text"
         (focus)="focused = true"
         (focusout)="focused = false"
-      />
-      <button
-        pButton
-        type="button"
-        icon="pi pi-calendar"
-        [pTooltip]="'Select Date'"
-        [tooltipPosition]="'bottom'"
-        (click)="datepicker.toggle()"
-      ></button>
-      <p-calendar #datepicker></p-calendar>
+      >
+
+      </p-calendar>
       <small *ngIf="shouldShowUnfocusedDescription() || focused">{{ description }}</small>
       <small>{{ error }}</small>
     </div>
