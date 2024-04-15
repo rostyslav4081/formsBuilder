@@ -37,6 +37,8 @@ import {CheckboxModule} from "primeng/checkbox";
 import {TooltipModule} from "primeng/tooltip";
 import {PaginatorModule} from "primeng/paginator";
 import {InputTextareaModule} from "primeng/inputtextarea";
+import {ObjectPrimeNgControlRenderer} from "./primengrenders/controls/object.render";
+import {CardModule} from "primeng/card";
 
 
 
@@ -56,6 +58,7 @@ import {InputTextareaModule} from "primeng/inputtextarea";
     LayoutChildrenRenderPropsPipe,
     VerticalLayoutPrimeNgRenderer,
     LayoutRenderer,
+    ObjectPrimeNgControlRenderer,
 
 
   ],
@@ -77,6 +80,7 @@ import {InputTextareaModule} from "primeng/inputtextarea";
     TooltipModule,
     PaginatorModule,
     InputTextareaModule,
+    CardModule,
 
 
   ],

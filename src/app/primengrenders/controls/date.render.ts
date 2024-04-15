@@ -29,7 +29,7 @@ import { JsonFormsAngularService, JsonFormsControl } from '@jsonforms/angular';
     `
       :host {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
       }
 
     `,

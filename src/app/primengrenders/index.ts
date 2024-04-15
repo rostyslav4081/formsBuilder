@@ -10,6 +10,8 @@ import {DatePrimeNgControlRenderer, DatePrimeNgControlRendererTester} from "./co
 import {VerticalLayoutPrimeNgRenderer, verticalLayoutPrimeNgTester} from "./layouts/vertical-layout.renderer";
 import {HorizontalLayoutPrimeNgRenderer, horizontalLayoutPrimeNgTester} from "./layouts/horizontal-layout.renderer";
 import {LabelPrimeNgRenderer, LabelPrimeNgRendererTester} from "./controls/label.render";
+import {ObjectPrimeNgControlRenderer, ObjectPrimeNgControlRendererTester} from "./controls/object.render";
+
 
 
 
@@ -25,7 +27,7 @@ export const angularPrimeNgRenderers: {
 
 
   { tester: DatePrimeNgControlRendererTester, renderer: DatePrimeNgControlRenderer },
-
+  { tester: ObjectPrimeNgControlRendererTester, renderer: ObjectPrimeNgControlRenderer },
   { tester: FileInputPrimeNgRendererTester, renderer: FileInputPrimeNgRenderer },
   { tester: ButtonPrimeNgRendererTester, renderer: ButtonPrimeNgRenderer },
   // layouts

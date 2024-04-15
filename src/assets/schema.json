@@ -11,11 +11,15 @@
     "hugeLabel": { "type": "string" },
     "smallLabel": { "type": "string" },
     "fileUpload": {
-      "type": "object",
-      "format": "file"
+      "type": "file"
+
     },
     "textBefore": {"type": "string","format": "text"},
     "textArea": { "type": "string" },
-    "done": { "type": "boolean" ,"label": true}
+    "done": { "type": "boolean" },
+    "buttonField": {
+      "type": "object"
+
+    }
   }
 }
