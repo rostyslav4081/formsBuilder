@@ -34,10 +34,10 @@ import {BooleanPrimeNgControlRenderer} from "./boolean.render";
 export class LabelPrimeNgRenderer  extends JsonFormsBaseRenderer<LabelElement>
   implements OnDestroy, OnInit
 {
-  label: string;
-  visible: boolean;
+  label!: string;
+  visible!: boolean;
 
-  private subscription: Subscription;
+  private subscription: Subscription | undefined;
 
   constructor(private jsonFormsService: JsonFormsAngularService) {
     super();

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { JsonFormsAngularService, JsonFormsControl } from '@jsonforms/angular';
 import { isStringControl, RankedTester, rankWith } from '@jsonforms/core';
-import {BooleanPrimeNgControlRenderer} from "./boolean.render";
+
 
 @Component({
   selector: 'TextControlRenderer',
@@ -40,13 +40,14 @@ export class TextPrimeNgControlRenderer extends JsonFormsControl {
   constructor(jsonformsService: JsonFormsAngularService) {
     super(jsonformsService);
   }
-  getEventValue = (event: any) => event.target.value || undefined;
+
+  override getEventValue = (event: any) => event.target.value || undefined;
   getType = (): string => {
-    if (this.uischema.options && this.uischema.options.format) {
-      return this.uischema.options.format;
+    if (this.uischema.options && this.uischema.options['format']) {
+      return this.uischema.options['format'];
     }
-    if (this.scopedSchema && this.scopedSchema.format) {
-      switch (this.scopedSchema.format) {
+    if (this.scopedSchema && this.scopedSchema['format']) {
+      switch (this.scopedSchema['format']) {
         case 'email':
           return 'email';
         case 'tel':

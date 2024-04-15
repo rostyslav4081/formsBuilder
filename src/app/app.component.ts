@@ -77,16 +77,7 @@ export class AppComponent {
 
   renderers = [
     ...angularPrimeNgRenderers,
-    { tester: rankWith(5, pFirstnameInputTester), renderer: CustomAutocompleteControlRenderer },
-    { tester: rankWith(5, pLastnameInputTester), renderer: CustomAutocompleteControlRenderer },
-    { tester: rankWith(5, pPhoneNumberInputTester), renderer: CustomAutocompleteControlRenderer },
-    { tester: rankWith(5, pEmailInputTester), renderer: CustomAutocompleteControlRenderer },
-    { tester: rankWith(5, pDateInputTester), renderer: CustomDateAutocompleteControlRenderer },
-    { tester: rankWith(5, pPostCodeInputTester), renderer: CustomAutocompleteControlRenderer },
-    { tester: rankWith(5, pNameBuildingInputTester), renderer: CustomAutocompleteControlRenderer },
-    { tester: rankWith(5, pHugeLabelTester), renderer: HugeLabelAutocompleteControlRenderer },
-    { tester: rankWith(5, pSmallLabelTester), renderer: SmallLabelAutocompleteRenderer },
-    { tester: rankWith(5, pFileUploadTester), renderer: FileUploadAutocompleteControlRenderer}
+
 
 
 

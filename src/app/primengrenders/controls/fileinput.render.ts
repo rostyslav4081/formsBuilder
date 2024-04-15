@@ -8,15 +8,17 @@ import { isMultiLineControl, RankedTester, rankWith } from '@jsonforms/core';
   template: `
     <div [ngStyle]="{ display: hidden ? 'none' : '' }" class="p-field">
       <label>{{ label }}</label>
-      <input
-        type="file"
-        pFileUpload
-        (onSelect)="onFileSelect($event)"
-        [id]="id"
-        [formControl]="form"
+
+      <p-fileUpload
         (focus)="focused = true"
         (focusout)="focused = false"
-      />
+        [id]="id"
+        [formControl]="form"
+        (onSelect)="onFileSelect($event)"
+
+        [auto]="true"
+
+      ></p-fileUpload>
       <small *ngIf="shouldShowUnfocusedDescription() || focused">{{ description }}</small>
       <small>{{ error }}</small>
     </div>
@@ -48,5 +50,5 @@ export class FileInputPrimeNgRenderer extends JsonFormsControl {
 
 export const FileInputPrimeNgRendererTester: RankedTester = rankWith(
   2,
-  (control) => control.data.type === 'string' && control.data.format === 'uri'
+  (control) => control.data.type === 'string' && control.data.format === 'file'
 );

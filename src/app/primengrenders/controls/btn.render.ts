@@ -35,5 +35,7 @@ export class ButtonPrimeNgRenderer extends JsonFormsControl {
 
 export const ButtonPrimeNgRendererTester: RankedTester = rankWith(
   2,
-  (control) => control.data.type === 'string' && control.data.format === 'uri'
+  (control) => {
+    return control.data?.type === 'string' && control.data?.format === 'uri';
+  }
 );

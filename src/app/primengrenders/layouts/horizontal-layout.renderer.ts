@@ -11,10 +11,11 @@ import {
 } from '@jsonforms/core';
 import { LayoutRenderer } from './layout.renderer';
 import { JsonFormsAngularService } from '@jsonforms/angular';
-import {BooleanPrimeNgControlRenderer} from "../controls/boolean.render";
+
+
 
 @Component({
-  selector: 'HorizontalLayoutRenderer',
+  selector: 'HorizontalLayoutPrimeNgRenderer',
   template: `
     <div
       [ngStyle]="{ display: hidden ? 'none' : '' }"
@@ -53,6 +54,9 @@ export class HorizontalLayoutPrimeNgRenderer extends LayoutRenderer<HorizontalLa
   ) {
     super(jsonFormsService, changeDetectionRef);
   }
+
+  override readonly hidden: any;
+
 }
 export const horizontalLayoutPrimeNgTester: RankedTester = rankWith(
   1,
