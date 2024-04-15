@@ -23,6 +23,7 @@ import {CustomDateAutocompleteControlRenderer} from "./customDate.autocomplete";
 import {HugeLabelAutocompleteControlRenderer} from "./hugeLabel.autocomplete";
 import {SmallLabelAutocompleteRenderer} from "./smallLabel.autocomplete";
 import {FileUploadAutocompleteControlRenderer} from "./fileUpload.autocomplete";
+import {angularPrimeNgRenderers} from "./primengrenders";
 
 
 
@@ -75,7 +76,7 @@ const pFileUploadTester: Tester = and(
 export class AppComponent {
 
   renderers = [
-    ...angularMaterialRenderers,
+    ...angularPrimeNgRenderers,
     { tester: rankWith(5, pFirstnameInputTester), renderer: CustomAutocompleteControlRenderer },
     { tester: rankWith(5, pLastnameInputTester), renderer: CustomAutocompleteControlRenderer },
     { tester: rankWith(5, pPhoneNumberInputTester), renderer: CustomAutocompleteControlRenderer },
