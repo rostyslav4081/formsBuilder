@@ -50,7 +50,7 @@ export class DatePrimeNgControlRenderer extends JsonFormsControl {
     super(jsonformsService);
   }
 
-  getEventValue = (event: any) => event.value.toISOString().substr(0, 10);
+  override getEventValue = (event: any) => event.value.toISOString().substr(0, 10);
 }
 
 export const DatePrimeNgControlRendererTester: RankedTester = rankWith(
