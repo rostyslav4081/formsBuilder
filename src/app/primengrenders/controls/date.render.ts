@@ -6,7 +6,7 @@ import { JsonFormsAngularService, JsonFormsControl } from '@jsonforms/angular';
 @Component({
   selector: 'DateControlRenderer',
   template: `
-    <div [ngStyle]="{ display: hidden ? 'none' : '' }" class="p-field">
+    <div [ngStyle]="{ display: hidden ? 'none' : '' }" class="input-control">
       <label>{{ label }}</label>
 
 
@@ -17,6 +17,7 @@ import { JsonFormsAngularService, JsonFormsControl } from '@jsonforms/angular';
         type="text"
         (focus)="focused = true"
         (focusout)="focused = false"
+        styleClass="width-fix"
       >
 
       </p-calendar>
@@ -27,11 +28,14 @@ import { JsonFormsAngularService, JsonFormsControl } from '@jsonforms/angular';
   `,
   styles: [
     `
-      :host {
+      :host ::ng-deep .width-fix {
+        display: flex;
+      }
+      .input-control {
         display: flex;
         flex-direction: column;
+        gap: 0.5rem;
       }
-
     `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -47,6 +51,6 @@ export class DatePrimeNgControlRenderer extends JsonFormsControl {
 }
 
 export const DatePrimeNgControlRendererTester: RankedTester = rankWith(
-  2,
+  3,
   isDateControl
 );

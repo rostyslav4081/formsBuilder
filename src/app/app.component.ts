@@ -32,6 +32,7 @@ import {angularPrimeNgRenderers} from "./primengrenders";
 export class AppComponent {
 
   renderers = [
+    ...angularMaterialRenderers,
     ...angularPrimeNgRenderers,
 
 

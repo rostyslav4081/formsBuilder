@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { JsonFormsAngularService, JsonFormsControl } from '@jsonforms/angular';
-import {isMultiLineControl, RankedTester, rankWith, schemaTypeIs} from '@jsonforms/core';
+import {and, formatIs, isMultiLineControl, RankedTester, rankWith, schemaTypeIs} from '@jsonforms/core';
 
 
 @Component({
@@ -19,7 +19,7 @@ import {isMultiLineControl, RankedTester, rankWith, schemaTypeIs} from '@jsonfor
         [auto]="true"
 
       >
-        
+
       </p-fileUpload>
       <small *ngIf="shouldShowUnfocusedDescription() || focused">{{ description }}</small>
       <small>{{ error }}</small>
@@ -51,6 +51,6 @@ export class FileInputPrimeNgRenderer extends JsonFormsControl {
 }
 
 export const FileInputPrimeNgRendererTester: RankedTester = rankWith(
-  2,
-  schemaTypeIs('file')
+  5,
+  and(schemaTypeIs('string'), formatIs('file'))
 );

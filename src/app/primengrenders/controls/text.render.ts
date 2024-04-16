@@ -24,12 +24,10 @@ import { isStringControl, RankedTester, rankWith } from '@jsonforms/core';
   `,
   styles: [
     `
-      :host {
+      .input-control {
         display: flex;
-        flex-direction: row;
-      }
-      input-control {
-        flex: 1 1 auto;
+        flex-direction: column;
+        gap: 0.5rem;
       }
     `,
   ],
@@ -60,6 +58,6 @@ export class TextPrimeNgControlRenderer extends JsonFormsControl {
   };
 }
 export const TextPrimeNgControlRendererTester: RankedTester = rankWith(
-  1,
+  2,
   isStringControl
 );
