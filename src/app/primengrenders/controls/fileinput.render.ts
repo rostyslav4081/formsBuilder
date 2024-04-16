@@ -24,6 +24,7 @@ import {and, formatIs, isMultiLineControl, RankedTester, rankWith, schemaTypeIs}
       <small *ngIf="shouldShowUnfocusedDescription() || focused">{{ description }}</small>
       <small>{{ error }}</small>
     </div>
+
   `,
   styles: [
     `
@@ -34,6 +35,7 @@ import {and, formatIs, isMultiLineControl, RankedTester, rankWith, schemaTypeIs}
     `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
 export class FileInputPrimeNgRenderer extends JsonFormsControl {
   focused = false;

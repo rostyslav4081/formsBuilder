@@ -33,7 +33,7 @@ export const angularPrimeNgRenderers: {
   { tester: DatePrimeNgControlRendererTester, renderer: DatePrimeNgControlRenderer },
   // { tester: ObjectPrimeNgControlRendererTester, renderer: ObjectPrimeNgControlRenderer },
   { tester: FileInputPrimeNgRendererTester, renderer: FileInputPrimeNgRenderer },
-  // { tester: ButtonPrimeNgRendererTester, renderer: ButtonPrimeNgRenderer },
+
 
   // layouts
   // { tester: verticalLayoutPrimeNgTester, renderer: VerticalLayoutPrimeNgRenderer },
