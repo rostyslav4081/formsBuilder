@@ -69,10 +69,8 @@
 
           "type": "Control",
           "label": "Souhlasím se zpracováním osobních údajů v rozsahu a za podmínek uvedených zde.",
-          "scope": "#/properties/done",
-          "options": {
-            "multi": true
-          }
+          "scope": "#/properties/done"
+
 
 
     },

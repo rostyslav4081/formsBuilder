@@ -64,9 +64,7 @@ import {
             <button
               pButton
               icon="pi pi-arrow-up"
-              *ngIf="uischema?.options && uischema.options['showSortButtons'] !== undefined"
-
-
+              *ngIf="uischema?.options?.['showSortButtons']"
               (click)="up(idx)"
               [disabled]="first"
               label="{{ translations.up }}"
@@ -76,9 +74,7 @@ import {
             <button
               pButton
               icon="pi pi-arrow-down"
-              *ngIf="uischema?.options && uischema.options['showSortButtons'] !== undefined"
-
-
+              *ngIf="uischema?.options?.['showSortButtons']"
               (click)="down(idx)"
               [disabled]="last"
               label="{{ translations.down }}"
