@@ -11,6 +11,12 @@ import {VerticalLayoutPrimeNgRenderer, verticalLayoutPrimeNgTester} from "./layo
 import {HorizontalLayoutPrimeNgRenderer, horizontalLayoutPrimeNgTester} from "./layouts/horizontal-layout.renderer";
 import {LabelPrimeNgRenderer, LabelPrimeNgRendererTester} from "./controls/label.render";
 import {ObjectPrimeNgControlRenderer, ObjectPrimeNgControlRendererTester} from "./controls/object.render";
+import {GroupLayoutPrimeNgRenderer, groupLayoutPrimeNgTester} from "./layouts/group-layout.renderer";
+import {
+  categorizationPrimeNgTester,
+  CategorizationTabLayoutPrimeNgRenderer
+} from "./layouts/categorization-layout.renderer";
+import {ArrayLayoutPrimeNgRenderer, ArrayLayoutPrimeNgRendererTester} from "./layouts/array-layout.renderer";
 
 
 
@@ -32,9 +38,10 @@ export const angularPrimeNgRenderers: {
   { tester: ButtonPrimeNgRendererTester, renderer: ButtonPrimeNgRenderer },
   // layouts
   { tester: verticalLayoutPrimeNgTester, renderer: VerticalLayoutPrimeNgRenderer },
-
+  { tester: groupLayoutPrimeNgTester, renderer: GroupLayoutPrimeNgRenderer },
   { tester: horizontalLayoutPrimeNgTester, renderer: HorizontalLayoutPrimeNgRenderer },
-
+  { tester: ArrayLayoutPrimeNgRendererTester, renderer: ArrayLayoutPrimeNgRenderer },
+  { tester: categorizationPrimeNgTester, renderer: CategorizationTabLayoutPrimeNgRenderer },
   { tester: LabelPrimeNgRendererTester, renderer: LabelPrimeNgRenderer },
 
 

@@ -18,7 +18,9 @@ import {isMultiLineControl, RankedTester, rankWith, schemaTypeIs} from '@jsonfor
 
         [auto]="true"
 
-      ></p-fileUpload>
+      >
+        
+      </p-fileUpload>
       <small *ngIf="shouldShowUnfocusedDescription() || focused">{{ description }}</small>
       <small>{{ error }}</small>
     </div>

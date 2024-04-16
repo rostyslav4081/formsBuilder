@@ -17,12 +17,23 @@ export const mapStateToVisible = (
   state: JsonFormsState,
   ownProps: OwnPropsOfRenderer
 ) => {
+  if (ownProps.uischema == null) {
+    return { visible: false };
+  }
+
   const visible =
     ownProps.visible !== undefined
       ? ownProps.visible
-      : isVisible(ownProps.uischema , getData(state), undefined, getAjv(state));
+      : isVisible(
+        ownProps.uischema,
+        getData(state),
+        '',
+        getAjv(state)
+      );
 
   return {
     visible,
   };
 };
+
+
