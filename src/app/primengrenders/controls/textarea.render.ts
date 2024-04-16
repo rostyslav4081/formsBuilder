@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { JsonFormsAngularService, JsonFormsControl } from '@jsonforms/angular';
 import { isMultiLineControl, RankedTester, rankWith } from '@jsonforms/core';
-import {BooleanPrimeNgControlRenderer} from "./boolean.render";
+
 
 @Component({
   selector: 'TextAreaRenderer',

@@ -3,7 +3,7 @@ import { RankedTester } from '@jsonforms/core';
 
 import {BooleanPrimeNgControlRenderer, booleanPrimeNgControlTester} from "./controls/boolean.render";
 import {TextPrimeNgControlRenderer, TextPrimeNgControlRendererTester} from "./controls/text.render";
-import {ButtonPrimeNgRenderer, ButtonPrimeNgRendererTester} from "./controls/btn.render";
+
 import {FileInputPrimeNgRenderer, FileInputPrimeNgRendererTester} from "./controls/fileinput.render";
 import {TextAreaPrimeNgRenderer, TextAreaPrimeNgRendererTester} from "./controls/textarea.render";
 import {DatePrimeNgControlRenderer, DatePrimeNgControlRendererTester} from "./controls/date.render";

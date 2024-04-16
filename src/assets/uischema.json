@@ -3,7 +3,8 @@
   "elements": [
     {
       "type": "Control",
-      "scope": "#/properties/firstname"
+      "scope": "#/properties/firstname",
+      "label": "First name"
     },
     {
       "type": "Control",
@@ -62,8 +63,8 @@
     },
     {
       "type": "Control",
-      "label": "Odesláním beru na vědomí tyto informace o zpracování osobních údajů a poučení o mých právech.",
-      "scope": "#/properties/textBefore"
+      "Label": "Odesláním beru na vědomí tyto informace o zpracování osobních údajů a poučení o mých právech."
+
     },
     {
 

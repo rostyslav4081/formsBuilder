@@ -24,7 +24,7 @@ import {CalendarModule} from "primeng/calendar";
 
 import {FileUploadModule} from "primeng/fileupload";
 import {BooleanPrimeNgControlRenderer} from "./primengrenders/controls/boolean.render";
-import {ButtonPrimeNgRenderer} from "./primengrenders/controls/btn.render";
+
 import {DatePrimeNgControlRenderer} from "./primengrenders/controls/date.render";
 import {FileInputPrimeNgRenderer} from "./primengrenders/controls/fileinput.render";
 import {LabelPrimeNgRenderer} from "./primengrenders/controls/label.render";
@@ -51,7 +51,7 @@ import {TabViewModule} from "primeng/tabview";
   declarations: [
     AppComponent,
     BooleanPrimeNgControlRenderer,
-    ButtonPrimeNgRenderer,
+
     DataDisplayComponent,
     DatePrimeNgControlRenderer,
     FileInputPrimeNgRenderer,
