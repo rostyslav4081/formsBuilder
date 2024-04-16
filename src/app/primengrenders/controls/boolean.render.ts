@@ -11,15 +11,17 @@ import { isBooleanControl, RankedTester, rankWith } from '@jsonforms/core';
   selector: 'BooleanControlRenderer',
   template: `
     <div [ngStyle]="{ display: hidden ? 'none' : '' }" class="boolean-control">
-      <p-checkbox
-        binary="true"
-        (onChange)="onChange($event)"
-        [ngModel]="isChecked()"
-        [disabled]="!isEnabled()"
-        [id]="id"
-      >
-        {{ label }}
-      </p-checkbox>
+      <div class="labelNG">
+        <p-checkbox
+          binary="true"
+          (onChange)="onChange($event)"
+          [ngModel]="isChecked()"
+          [disabled]="!isEnabled()"
+          [id]="id"
+        >
+
+        </p-checkbox>
+        {{ label }}</div>
       <small *ngIf="shouldShowUnfocusedDescription()" class="mat-caption">{{ description }}</small>
       <small class="mat-caption">{{ error }}</small>
     </div>
@@ -37,6 +39,12 @@ import { isBooleanControl, RankedTester, rankWith } from '@jsonforms/core';
         flex-direction: column;
         justify-content: center;
         height: 100%;
+      }
+      .labelNG{
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
       }
     `,
   ],
