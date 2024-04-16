@@ -48,34 +48,36 @@ export class CategorizationTabLayoutPrimeNgRenderer
   extends JsonFormsBaseRenderer<Categorization>
   implements OnInit, OnDestroy
 {
-  hidden: boolean;
-  visibleCategories: (Category | Categorization)[];
-  private subscription: Subscription;
-  categoryLabels: string[];
+  hidden: boolean = true;
+  visibleCategories: (Category | Categorization)[] = [];
+  private subscription: Subscription | undefined;
+  categoryLabels: string[] = [];
 
   constructor(private jsonFormsService: JsonFormsAngularService) {
     super();
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.subscription = this.jsonFormsService.$state.subscribe({
       next: (state: JsonFormsState) => {
         const props = mapStateToLayoutProps(state, this.getOwnProps());
         this.hidden = !props.visible;
         this.visibleCategories = this.uischema.elements.filter(
           (category: Category | Categorization) =>
-            isVisible(category, props.data, undefined, getAjv(state))
+            isVisible(category, props.data, '', getAjv(state))
         );
+        // Filter out undefined values from labels
         this.categoryLabels = this.visibleCategories.map((element) =>
           deriveLabelForUISchemaElement(
             element as Labelable<boolean>,
-            state.jsonforms.i18n?.translate ??
-            defaultJsonFormsI18nState.translate
+            state.jsonforms.i18n?.translate ?? defaultJsonFormsI18nState.translate
           )
-        );
+        ).filter((label): label is string => typeof label === 'string');
       },
     });
   }
+
+
 
   ngOnDestroy() {
     if (this.subscription) {

@@ -19,7 +19,7 @@ import {
   UISchemaTester,
   unsetReadonly,
 } from '@jsonforms/core';
-import {groupLayoutPrimeNgTester} from "./group-layout.renderer";
+
 
 @Component({
   selector: 'app-array-layout-renderer',
@@ -64,7 +64,9 @@ import {groupLayoutPrimeNgTester} from "./group-layout.renderer";
             <button
               pButton
               icon="pi pi-arrow-up"
-              *ngIf="uischema?.options?.showSortButtons"
+              *ngIf="uischema?.options && uischema.options['showSortButtons'] !== undefined"
+
+
               (click)="up(idx)"
               [disabled]="first"
               label="{{ translations.up }}"
@@ -74,7 +76,9 @@ import {groupLayoutPrimeNgTester} from "./group-layout.renderer";
             <button
               pButton
               icon="pi pi-arrow-down"
-              *ngIf="uischema?.options?.showSortButtons"
+              *ngIf="uischema?.options && uischema.options['showSortButtons'] !== undefined"
+
+
               (click)="down(idx)"
               [disabled]="last"
               label="{{ translations.down }}"

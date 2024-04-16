@@ -39,6 +39,10 @@ import {PaginatorModule} from "primeng/paginator";
 import {InputTextareaModule} from "primeng/inputtextarea";
 import {ObjectPrimeNgControlRenderer} from "./primengrenders/controls/object.render";
 import {CardModule} from "primeng/card";
+import {GroupLayoutPrimeNgRenderer} from "./primengrenders/layouts/group-layout.renderer";
+import {ArrayLayoutPrimeNgRenderer} from "./primengrenders/layouts/array-layout.renderer";
+import {CategorizationTabLayoutPrimeNgRenderer} from "./primengrenders/layouts/categorization-layout.renderer";
+import {TabViewModule} from "primeng/tabview";
 
 
 
@@ -59,8 +63,9 @@ import {CardModule} from "primeng/card";
     VerticalLayoutPrimeNgRenderer,
     LayoutRenderer,
     ObjectPrimeNgControlRenderer,
-
-
+    GroupLayoutPrimeNgRenderer,
+    ArrayLayoutPrimeNgRenderer,
+    CategorizationTabLayoutPrimeNgRenderer
   ],
   imports: [
     BrowserModule,
@@ -81,6 +86,7 @@ import {CardModule} from "primeng/card";
     PaginatorModule,
     InputTextareaModule,
     CardModule,
+    TabViewModule,
 
 
   ],
