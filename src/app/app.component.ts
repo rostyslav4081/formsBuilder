@@ -24,6 +24,7 @@ import {angularPrimeNgRenderers} from "./primengrenders";
 
 
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -32,8 +33,9 @@ import {angularPrimeNgRenderers} from "./primengrenders";
 export class AppComponent {
 
   renderers = [
-    ...angularMaterialRenderers,
+    // ...angularMaterialRenderers,
     ...angularPrimeNgRenderers,
+
   ];
   uischema = uischemaAsset;
   schema = schemaAsset;

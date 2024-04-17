@@ -31,14 +31,14 @@ export const angularPrimeNgRenderers: {
   { tester: TextPrimeNgControlRendererTester, renderer: TextPrimeNgControlRenderer },
   { tester: TextAreaPrimeNgRendererTester, renderer: TextAreaPrimeNgRenderer },
   { tester: DatePrimeNgControlRendererTester, renderer: DatePrimeNgControlRenderer },
-  // { tester: ObjectPrimeNgControlRendererTester, renderer: ObjectPrimeNgControlRenderer },
+  { tester: ObjectPrimeNgControlRendererTester, renderer: ObjectPrimeNgControlRenderer },
   { tester: FileInputPrimeNgRendererTester, renderer: FileInputPrimeNgRenderer },
 
 
   // layouts
-  // { tester: verticalLayoutPrimeNgTester, renderer: VerticalLayoutPrimeNgRenderer },
+  { tester: verticalLayoutPrimeNgTester, renderer: VerticalLayoutPrimeNgRenderer },
   // { tester: groupLayoutPrimeNgTester, renderer: GroupLayoutPrimeNgRenderer },
-  // { tester: horizontalLayoutPrimeNgTester, renderer: HorizontalLayoutPrimeNgRenderer },
+  { tester: horizontalLayoutPrimeNgTester, renderer: HorizontalLayoutPrimeNgRenderer },
   // { tester: ArrayLayoutPrimeNgRendererTester, renderer: ArrayLayoutPrimeNgRenderer },
   // { tester: categorizationPrimeNgTester, renderer: CategorizationTabLayoutPrimeNgRenderer },
   { tester: LabelPrimeNgRendererTester, renderer: LabelPrimeNgRenderer },

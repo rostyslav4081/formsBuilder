@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { JsonFormsAngularService, JsonFormsControl } from '@jsonforms/angular';
-import {and, formatIs, isMultiLineControl, RankedTester, rankWith, schemaTypeIs} from '@jsonforms/core';
+import {and, formatIs, isMultiLineControl, RankedTester, rankWith, schemaTypeIs, scopeEndsWith} from '@jsonforms/core';
 
 
 @Component({
@@ -66,5 +66,5 @@ export class FileInputPrimeNgRenderer extends JsonFormsControl {
 
 export const FileInputPrimeNgRendererTester: RankedTester = rankWith(
   5,
-  and(schemaTypeIs('string'), formatIs('file'))
+  and(schemaTypeIs('string'),  scopeEndsWith('fileUpload'))
 );
