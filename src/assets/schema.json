@@ -8,16 +8,10 @@
     "pickerDate": { "type": "string", "format": "date" },
     "postCode": { "type": "string" },
     "nameBuilding": { "type": "string" },
-    "hugeLabel": { "type": "string" },
-    "smallLabel": { "type": "string" },
     "fileUpload": {
-      "type": "string"
-
-
+      "type": "string",
+      "format": "file"
     },
-    "textBefore": {"type": "string","format": "text"},
-    "textArea": { "type": "string" },
     "done": { "type": "boolean" }
-
   }
 }

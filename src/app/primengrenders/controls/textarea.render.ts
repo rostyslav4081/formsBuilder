@@ -6,7 +6,7 @@ import { isMultiLineControl, RankedTester, rankWith } from '@jsonforms/core';
 @Component({
   selector: 'TextAreaRenderer',
   template: `
-    <div [ngStyle]="{ display: hidden ? 'none' : '' }" class="p-field">
+    <div [ngStyle]="{ display: hidden ? 'none' : '' }" class="input-control">
       <label>{{ label }}</label>
       <textarea
         pInputTextarea
@@ -23,11 +23,11 @@ import { isMultiLineControl, RankedTester, rankWith } from '@jsonforms/core';
   `,
   styles: [
     `
-      :host {
+      .input-control {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        gap: 0.5rem;
       }
-
     `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -41,6 +41,6 @@ export class TextAreaPrimeNgRenderer extends JsonFormsControl {
   override getEventValue = (event: any) => event.target.value || undefined;
 }
 export const TextAreaPrimeNgRendererTester: RankedTester = rankWith(
-  2,
+  5,
   isMultiLineControl
 );

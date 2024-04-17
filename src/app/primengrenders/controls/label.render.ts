@@ -17,17 +17,19 @@ import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'LabelRenderer',
-  template: ` <label class="custom-headline">{{ label }}</label> `,
+  template: ` <label class="custom-headline size-{{ size }}">{{ label }}</label> `,
   styles: [
     `
       :host {
         flex: 1 1 auto;
       }
-
       .custom-headline {
         font-size: 1.25rem;
         font-weight: 500;
-
+      }
+      .custom-headline.size-small {
+        font-size: 1rem;
+        font-weight: normal;
       }
     `,
   ],
@@ -38,6 +40,7 @@ export class LabelPrimeNgRenderer  extends JsonFormsBaseRenderer<LabelElement>
 {
   label!: string;
   visible!: boolean;
+  size: 'default' | 'small' = 'default';
 
   private subscription: Subscription | undefined;
 
@@ -53,6 +56,7 @@ export class LabelPrimeNgRenderer  extends JsonFormsBaseRenderer<LabelElement>
         );
         this.visible = props.visible;
         this.label = props.text;
+        this.size = this.uischema.options?.['size'] ?? 'default';
       },
     });
   }
@@ -64,4 +68,4 @@ export class LabelPrimeNgRenderer  extends JsonFormsBaseRenderer<LabelElement>
   }
 }
 
-export const LabelPrimeNgRendererTester: RankedTester = rankWith(4, uiTypeIs('Label'));
+export const LabelPrimeNgRendererTester: RankedTester = rankWith(5, uiTypeIs('Label'));

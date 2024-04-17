@@ -67,4 +67,4 @@ export class BooleanPrimeNgControlRenderer extends JsonFormsControl {
   }
 }
 
-export const booleanPrimeNgControlTester: RankedTester = rankWith(2, isBooleanControl);
+export const booleanPrimeNgControlTester: RankedTester = rankWith(5, isBooleanControl);

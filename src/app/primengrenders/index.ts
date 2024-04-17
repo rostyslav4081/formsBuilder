@@ -27,7 +27,7 @@ export const angularPrimeNgRenderers: {
   renderer: any;
 }[] = [
   // controls
-  // { tester: booleanPrimeNgControlTester, renderer: BooleanPrimeNgControlRenderer },
+  { tester: booleanPrimeNgControlTester, renderer: BooleanPrimeNgControlRenderer },
   { tester: TextPrimeNgControlRendererTester, renderer: TextPrimeNgControlRenderer },
   { tester: TextAreaPrimeNgRendererTester, renderer: TextAreaPrimeNgRenderer },
   { tester: DatePrimeNgControlRendererTester, renderer: DatePrimeNgControlRenderer },
@@ -41,6 +41,6 @@ export const angularPrimeNgRenderers: {
   // { tester: horizontalLayoutPrimeNgTester, renderer: HorizontalLayoutPrimeNgRenderer },
   // { tester: ArrayLayoutPrimeNgRendererTester, renderer: ArrayLayoutPrimeNgRenderer },
   // { tester: categorizationPrimeNgTester, renderer: CategorizationTabLayoutPrimeNgRenderer },
-  // { tester: LabelPrimeNgRendererTester, renderer: LabelPrimeNgRenderer },
+  { tester: LabelPrimeNgRendererTester, renderer: LabelPrimeNgRenderer },
 
 ];

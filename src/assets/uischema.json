@@ -39,14 +39,15 @@
       ]
     },
     {
-      "type": "Control",
-      "label": "Čím více informací, tím přesnější nabídka",
-      "scope": "#/properties/hugeLabel"
+      "type": "Label",
+      "text": "Čím více informací, tím přesnější nabídka"
     },
     {
-      "type": "Control",
-      "label": "Pro optimální variantu potřebujeme vědět co nejvíc o vašem vysněném domě - rozměry, preference tvárnic, energetického standardu apod. Čím víc nám toho o svém domu napíšete, tím lépe.",
-      "scope": "#/properties/smallLabel"
+      "type": "Label",
+      "text": "Pro optimální variantu potřebujeme vědět co nejvíc o vašem vysněném domě - rozměry, preference tvárnic, energetického standardu apod. Čím víc nám toho o svém domu napíšete, tím lépe.",
+      "options": {
+        "size": "small"
+      }
     },
     {
       "type": "Control",
@@ -57,25 +58,21 @@
       "type": "Control",
       "label": "Zpráva pro nás:",
       "scope": "#/properties/textArea",
-      "option": {
+      "options": {
         "multi": true
       }
     },
     {
-      "type": "Control",
-      "Label": "Odesláním beru na vědomí tyto informace o zpracování osobních údajů a poučení o mých právech."
-
+      "type": "Label",
+      "text": "Odesláním beru na vědomí tyto informace o zpracování osobních údajů a poučení o mých právech.",
+      "options": {
+        "size": "small"
+      }
     },
     {
-
-          "type": "Control",
-          "label": "Souhlasím se zpracováním osobních údajů v rozsahu a za podmínek uvedených zde.",
-          "scope": "#/properties/done"
-
-
-
+      "type": "Control",
+      "label": "Souhlasím se zpracováním osobních údajů v rozsahu a za podmínek uvedených zde.",
+      "scope": "#/properties/done"
     }
-
-
   ]
 }

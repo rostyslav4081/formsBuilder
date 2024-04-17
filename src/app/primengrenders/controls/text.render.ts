@@ -17,7 +17,7 @@ import { isStringControl, RankedTester, rankWith } from '@jsonforms/core';
         (focus)="focused = true"
         (focusout)="focused = false"
       />
-      <small *ngIf="shouldShowUnfocusedDescription() || focused">{{ description }}</small>
+      <small *ngIf="description && (shouldShowUnfocusedDescription() || focused)">{{ description }}</small>
       <small>{{ error }}</small>
     </div>
 

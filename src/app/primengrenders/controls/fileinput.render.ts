@@ -6,10 +6,10 @@ import {and, formatIs, isMultiLineControl, RankedTester, rankWith, schemaTypeIs}
 @Component({
   selector: 'FileInputRenderer',
   template: `
-    <div [ngStyle]="{ display: hidden ? 'none' : '' }" class="p-field">
+    <div [ngStyle]="{ display: hidden ? 'none' : '' }" class="input-control">
       <label>{{ label }}</label>
 
-      <p-fileUpload
+      <!-- <p-fileUpload
         (focus)="focused = true"
         (focusout)="focused = false"
         [id]="id"
@@ -19,8 +19,19 @@ import {and, formatIs, isMultiLineControl, RankedTester, rankWith, schemaTypeIs}
         [auto]="true"
 
       >
+      </p-fileUpload> -->
 
-      </p-fileUpload>
+      <!-- TODO: https://dev.to/faddalibrahim/how-to-create-a-custom-file-upload-button-using-html-css-and-javascript-1c03 -->
+      <input
+        type="file"
+        (input)="onChange($event)"
+        [id]="id"
+        [formControl]="form"
+        hidden
+        #fileInput
+      />
+      <button pButton label="Vybrat soubor" (click)="fileInput.click()"></button>
+
       <small *ngIf="shouldShowUnfocusedDescription() || focused">{{ description }}</small>
       <small>{{ error }}</small>
     </div>
@@ -28,9 +39,10 @@ import {and, formatIs, isMultiLineControl, RankedTester, rankWith, schemaTypeIs}
   `,
   styles: [
     `
-      :host {
+       .input-control {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        gap: 0.5rem;
       }
     `,
   ],
