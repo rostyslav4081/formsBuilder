@@ -1,19 +1,54 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
-    "firstname": { "type": "string" },
-    "lastname": { "type": "string" },
-    "phoneNumber": { "type": "string" },
-    "email": { "type": "string", "format": "email" },
-    "pickerDate": { "type": "string", "format": "date" },
-    "postCode": { "type": "string" },
-    "nameBuilding": { "type": "string" },
-    "hugeLabel": { "type": "string" },
-    "smallLabel": { "type": "string" },
+    "firstname": {
+      "type": "string",
+      "pattern": "^[A-Z][a-z]*$"
+    },
+    "lastname": {
+      "type": "string",
+      "pattern": "^[A-Z][a-z]*$"
+    },
+    "phoneNumber": {
+      "type": "string",
+      "pattern": "^\\+420\\d{9}$"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+    },
+    "pickerDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "postCode": {
+      "type": "string",
+      "pattern": "^[0-9]\\d{5}$"
+    },
+    "nameBuilding": {
+      "type": "string",
+      "pattern": "^[A-Z][a-z]*$"
+    },
+    "hugeLabel": {
+      "type": "string"
+    },
+    "smallLabel": {
+      "type": "string"
+    },
     "fileUpload": {
       "type": "string",
-      "format": "file"
+      "format": "file",
+      "pattern": "^[-\\w!?=%]+\\.(jpg|jpeg|png|pdf|doc|docx)$"
     },
-    "done": { "type": "boolean" }
-  }
+    "textArea": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9._%+-]$"
+    },
+    "done": {
+      "type": "boolean"
+    }
+  },
+  "required": ["firstname", "lastname", "phoneNumber", "email", "pickerDate", "postCode", "nameBuilding", "done"]
 }

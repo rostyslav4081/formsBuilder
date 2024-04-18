@@ -4,23 +4,27 @@
     {
       "type": "Control",
       "scope": "#/properties/firstname",
-      "label": "First name"
+      "label": "Jméno"
     },
     {
       "type": "Control",
-      "scope": "#/properties/lastname"
+      "scope": "#/properties/lastname",
+      "label": "Příjmení"
     },
     {
       "type": "Control",
-      "scope": "#/properties/phoneNumber"
+      "scope": "#/properties/phoneNumber",
+      "label": "Telefonní číslo"
     },
     {
       "type": "Control",
-      "scope": "#/properties/email"
+      "scope": "#/properties/email",
+      "label": "E-mail"
     },
     {
       "type": "Control",
       "scope": "#/properties/pickerDate",
+      "label": "Kdy chcete začít stavět?",
       "options": {
         "format": "date"
       }
@@ -30,11 +34,13 @@
       "elements": [
         {
           "type": "Control",
-          "scope": "#/properties/postCode"
+          "scope": "#/properties/postCode",
+          "label": "PSČ stavby"
         },
         {
           "type": "Control",
-          "scope": "#/properties/nameBuilding"
+          "scope": "#/properties/nameBuilding",
+          "label": "Obec stavby"
         }
       ]
     },
