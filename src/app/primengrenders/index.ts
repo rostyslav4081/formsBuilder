@@ -18,10 +18,6 @@ import {
 } from "./layouts/categorization-layout.renderer";
 import {ArrayLayoutPrimeNgRenderer, ArrayLayoutPrimeNgRendererTester} from "./layouts/array-layout.renderer";
 
-
-
-
-
 export const angularPrimeNgRenderers: {
   tester: RankedTester;
   renderer: any;
@@ -33,7 +29,6 @@ export const angularPrimeNgRenderers: {
   { tester: DatePrimeNgControlRendererTester, renderer: DatePrimeNgControlRenderer },
   { tester: ObjectPrimeNgControlRendererTester, renderer: ObjectPrimeNgControlRenderer },
   { tester: FileInputPrimeNgRendererTester, renderer: FileInputPrimeNgRenderer },
-
 
   // layouts
   { tester: verticalLayoutPrimeNgTester, renderer: VerticalLayoutPrimeNgRenderer },

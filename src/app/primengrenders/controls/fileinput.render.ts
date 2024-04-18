@@ -1,7 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { JsonFormsAngularService, JsonFormsControl } from '@jsonforms/angular';
-import {and, formatIs, isMultiLineControl, RankedTester, rankWith, schemaTypeIs, scopeEndsWith} from '@jsonforms/core';
+import {and, formatIs, isMultiLineControl, isObjectControl, RankedTester, rankWith, schemaTypeIs, scopeEndsWith} from '@jsonforms/core';
 
+interface FileData {
+  data: string;
+  name: string;
+  type: string;
+}
 
 @Component({
   selector: 'FileInputRenderer',
@@ -9,24 +14,10 @@ import {and, formatIs, isMultiLineControl, RankedTester, rankWith, schemaTypeIs,
     <div [ngStyle]="{ display: hidden ? 'none' : '' }" class="input-control">
       <label>{{ label }}</label>
 
-      <!-- <p-fileUpload
-        (focus)="focused = true"
-        (focusout)="focused = false"
-        [id]="id"
-        [formControl]="form"
-        (onSelect)="onFileSelect($event)"
-
-        [auto]="true"
-
-      >
-      </p-fileUpload> -->
-
-      <!-- TODO: https://dev.to/faddalibrahim/how-to-create-a-custom-file-upload-button-using-html-css-and-javascript-1c03 -->
       <input
         type="file"
         (input)="onChange($event)"
         [id]="id"
-        [formControl]="form"
         hidden
         #fileInput
       />
@@ -52,38 +43,38 @@ import {and, formatIs, isMultiLineControl, RankedTester, rankWith, schemaTypeIs,
 export class FileInputPrimeNgRenderer extends JsonFormsControl {
   focused = false;
 
+  override data: FileData | undefined;
+
   constructor(jsonformsService: JsonFormsAngularService) {
     super(jsonformsService);
 
   }
-  // file2Base64(file: File): Promise<string> {
-  //   return new Promise<string>((resolve, reject) => {
-  //     const reader = new FileReader();
-  //     reader.readAsDataURL(file);
-  //     reader.onload = () => resolve(reader.result?.toString() || '');
-  //     reader.onerror = error => reject(error);
-  //   });
-  // }
-  override onChange(event: any) {
-    const file: File = event.target.files[0];
-    console.log(event.target);
-    console.log('Selected file:', file);
-  //
-  //
-  //   this.file2Base64(file)
-  //     .then(base64String => {
-  //       console.log('Base64 representation of the file:', base64String);
-  //
-  //     })
-  //     .catch(error => {
-  //       console.error('An error occurred while converting file to base64:', error);
-  //     });
+
+  file2Base64(file: File): Promise<string> {
+    return new Promise<string>((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result?.toString() || '');
+      reader.onerror = error => reject(error);
+    });
   }
 
-  override getEventValue = (event: any) => event.target.value || undefined;
+  override async onChange(event: any) {
+    const file: File = event.target.files[0];
+    console.log('Selected file:', file);
+
+    const data = await this.file2Base64(file);
+    const fileData: FileData = { data, name: file.name, type: file.type };
+    this.form.setValue(fileData);
+    this.data = fileData;
+
+    super.onChange(event);
+  }
+
+  override getEventValue = (event: any) => this.data;
 }
 
 export const FileInputPrimeNgRendererTester: RankedTester = rankWith(
   5,
-  and(schemaTypeIs('string'),  scopeEndsWith('fileUpload'))
+  and(schemaTypeIs('string'), formatIs('file'))
 );

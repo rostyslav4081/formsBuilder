@@ -3,13 +3,14 @@ import { angularMaterialRenderers } from '@jsonforms/angular-material';
 import {
   and,
   createAjv,
-  isControl, JsonSchema,
+  isControl,
+  JsonSchema,
   optionIs,
   rankWith,
   schemaTypeIs,
   scopeEndsWith,
   Tester,
-  UISchemaElement
+  UISchemaElement,
 } from '@jsonforms/core';
 
 import uischemaAsset from '../assets/uischema.json';
@@ -18,24 +19,17 @@ import schemaAsset from '../assets/schema.json';
 import { parsePhoneNumber } from 'libphonenumber-js';
 import { DateAdapter } from '@angular/material/core';
 
-import {angularPrimeNgRenderers} from "./primengrenders";
-
-
-
-
-
+import { angularPrimeNgRenderers } from './primengrenders';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-
   renderers = [
     // ...angularMaterialRenderers,
     ...angularPrimeNgRenderers,
-
   ];
   uischema = uischemaAsset;
   schema = schemaAsset;
@@ -44,10 +38,9 @@ export class AppComponent {
   dateAdapter;
   ajv = createAjv({
     schemaId: 'id',
-    allErrors: true
+    allErrors: true,
   });
   constructor(dateAdapter: DateAdapter<Date>) {
-
     // custom file format
     this.ajv.addFormat('file', (data) => true);
 
@@ -55,7 +48,7 @@ export class AppComponent {
     this.dateAdapter = dateAdapter;
     dateAdapter.setLocale(this.i18n.locale);
 
-    this.ajv.addFormat('tel', maybePhoneNumber => {
+    this.ajv.addFormat('tel', (maybePhoneNumber) => {
       try {
         parsePhoneNumber(maybePhoneNumber, 'CZ');
         return true;
@@ -67,6 +60,5 @@ export class AppComponent {
 
   submitForm() {
     console.log(this.data);
-
   }
 }
