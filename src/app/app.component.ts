@@ -39,7 +39,7 @@ export class AppComponent {
   ];
   uischema = uischemaAsset;
   schema = schemaAsset;
-
+  data: any;
   i18n = { locale: 'cz-CZ' };
   dateAdapter;
   ajv = createAjv({
@@ -63,5 +63,10 @@ export class AppComponent {
         return false;
       }
     });
+  }
+
+  submitForm() {
+    console.log(this.data);
+
   }
 }

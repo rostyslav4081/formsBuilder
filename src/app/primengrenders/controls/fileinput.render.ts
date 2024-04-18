@@ -54,11 +54,30 @@ export class FileInputPrimeNgRenderer extends JsonFormsControl {
 
   constructor(jsonformsService: JsonFormsAngularService) {
     super(jsonformsService);
+
   }
-
-  onFileSelect(event: any) {
-    const fileList: FileList = event.files;
-
+  // file2Base64(file: File): Promise<string> {
+  //   return new Promise<string>((resolve, reject) => {
+  //     const reader = new FileReader();
+  //     reader.readAsDataURL(file);
+  //     reader.onload = () => resolve(reader.result?.toString() || '');
+  //     reader.onerror = error => reject(error);
+  //   });
+  // }
+  override onChange(event: any) {
+    const file: File = event.target.files[0];
+    console.log(event.target);
+    console.log('Selected file:', file);
+  //
+  //
+  //   this.file2Base64(file)
+  //     .then(base64String => {
+  //       console.log('Base64 representation of the file:', base64String);
+  //
+  //     })
+  //     .catch(error => {
+  //       console.error('An error occurred while converting file to base64:', error);
+  //     });
   }
 
   override getEventValue = (event: any) => event.target.value || undefined;

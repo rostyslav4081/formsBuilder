@@ -1,10 +1,14 @@
 
-<jsonforms
-  [schema]="schema"
-  [uischema]="uischema"
-  [renderers]="renderers"
-  [i18n]="i18n"
-  [ajv]="ajv"
-></jsonforms>
+  <jsonforms
+    [(data)]="data"
+    [schema]="schema"
+    [uischema]="uischema"
+    [renderers]="renderers"
+    [i18n]="i18n"
+    [ajv]="ajv"
+  >
+  </jsonforms>
+  <p-button label="Odeslat" icon="pi pi-check" severity="warning" (click)="submitForm()"></p-button>
+
 
 
