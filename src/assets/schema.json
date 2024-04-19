@@ -4,32 +4,42 @@
   "properties": {
     "firstname": {
       "type": "string",
-      "pattern": "^[A-Z][a-z]*$"
+      "pattern": "^[A-Z][a-z]*$",
+      "minLength": 3,
+      "description": "Please enter your firstname"
     },
     "lastname": {
       "type": "string",
-      "pattern": "^[A-Z][a-z]*$"
+      "pattern": "^[A-Z][a-z]*$",
+      "minLength": 3,
+      "description": "Please enter your lastname"
     },
     "phoneNumber": {
       "type": "string",
-      "pattern": "^\\+420\\d{9}$"
+      "pattern": "^\\+420\\d{9}$",
+      "minLength": 13,
+      "description": "Please enter your phoneNumber"
     },
     "email": {
       "type": "string",
       "format": "email",
-      "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+      "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+      "description": "Please enter your email"
     },
     "pickerDate": {
       "type": "string",
-      "format": "date"
+      "format": "date",
+      "description": "Please select date"
     },
     "postCode": {
       "type": "string",
-      "pattern": "^[0-9]\\d{5}$"
+      "pattern": "^[0-9]\\d{5}$",
+      "description": "Please enter postCode"
     },
     "nameBuilding": {
       "type": "string",
-      "pattern": "^[A-Z][a-z]*$"
+      "pattern": "^[A-Z][a-z]*$",
+      "description": "Please enter nameBuilding"
     },
     "hugeLabel": {
       "type": "string"
@@ -41,14 +51,27 @@
       "type": "string",
       "format": "file",
       "pattern": "^[-\\w!?=%]+\\.(jpg|jpeg|png|pdf|doc|docx)$"
+
     },
     "textArea": {
       "type": "string",
-      "pattern": "^[a-zA-Z0-9._%+-]$"
+      "pattern": "^[a-zA-Z0-9._%+-]$",
+      "description": "Please enter your massage"
     },
     "done": {
       "type": "boolean"
     }
   },
-  "required": ["firstname", "lastname", "phoneNumber", "email", "pickerDate", "postCode", "nameBuilding", "done"]
+  "required": ["firstname", "lastname", "phoneNumber", "email", "pickerDate", "postCode", "nameBuilding", "done"],
+  "errorMessages": {
+    "firstname": "First name is required",
+    "lastname": "Last name is required",
+    "phoneNumber": "Phone number is required",
+    "email": "Email is required",
+    "pickerDate": "Date is required",
+    "postCode": "Postal code is required",
+    "nameBuilding": "Building name is required",
+    "done": "This field is required"
+  }
+
 }
