@@ -37,14 +37,15 @@ import startCase from "lodash/startCase";
       <ng-template pTemplate="body" let-row let-i="rowIndex" let-first="first" let-last="last">
         <tr>
           <td>
-            <button *ngIf="uischema?.options?.showSortButtons" pButton type="button" icon="pi pi-arrow-up"
+            <button *ngIf="uischema?.options?.['showSortButtons']" pButton type="button" icon="pi pi-arrow-up"
                     class="p-button-success item-up"
                     (click)="up(i)" [disabled]="first" pTooltip="{{translations.upAriaLabel}}"
                     tooltipPosition="right"></button>
-            <button *ngIf="uischema?.options?.showSortButtons" pButton type="button" icon="pi pi-arrow-down"
+            <button *ngIf="uischema?.options?.['showSortButtons']" pButton type="button" icon="pi pi-arrow-down"
                     class="p-button-info item-down"
                     (click)="down(i)" [disabled]="last" pTooltip="{{translations.downAriaLabel}}"
                     tooltipPosition="right"></button>
+
             <button pButton type="button" icon="pi pi-trash" class="p-button-danger"
                     (click)="remove(i)" [disabled]="!isEnabled()" pTooltip="{{translations.removeTooltip}}"
                     tooltipPosition="right"></button>
@@ -60,6 +61,7 @@ import startCase from "lodash/startCase";
         </tr>
       </ng-template>
     </p-table>
+
 
   `,
   styles: ['table {width: 100%;}', '.cdk-column-action { width: 15%}'],

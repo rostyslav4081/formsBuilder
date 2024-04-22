@@ -38,7 +38,7 @@ export class AppComponent {
   locale: 'cz' | 'en' | 'de' = 'cz';
   createTranslator(locale: 'cz' | 'de' | 'en'): (key: string, defaultMessage: string | undefined, context: any) => string {
     return (key: string, defaultMessage: string | undefined, context: any) => {
-      console.log(`Locale: ${locale}, Key: ${key}, Default Message: ${defaultMessage}, Context: ${context}`);
+      // console.log(`Locale: ${locale}, Key: ${key}, Default Message: ${defaultMessage}, Context: ${context}`);
       return defaultMessage || '';
     };
   }

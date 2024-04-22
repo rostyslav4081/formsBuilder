@@ -20,7 +20,6 @@ interface FileData {
         (input)="onChange($event)"
         [id]="id"
         hidden
-        multiple
         #fileInput
       />
       <button pButton label="Vybrat soubor" (click)="fileInput.click()"></button>

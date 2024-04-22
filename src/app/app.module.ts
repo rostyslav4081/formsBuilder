@@ -45,7 +45,7 @@ import {CategorizationTabLayoutPrimeNgRenderer} from "./primengrenders/layouts/c
 import {TabViewModule} from "primeng/tabview";
 import {TablePrimeNgRenderer} from "./primengrenders/controls/table.renderer";
 import {TableModule} from "primeng/table";
-import {MasterListPrimeNgComponent} from "./primengrenders/controls/master";
+// import {MasterListPrimeNgComponent} from "./primengrenders/controls/master";
 import {SplitterModule} from "primeng/splitter";
 import {ListboxModule} from "primeng/listbox";
 import {JsonFormsDetailComponent} from "./primengrenders/controls/detail";
@@ -73,7 +73,7 @@ import {JsonFormsDetailComponent} from "./primengrenders/controls/detail";
     ArrayLayoutPrimeNgRenderer,
     CategorizationTabLayoutPrimeNgRenderer,
     TablePrimeNgRenderer,
-    MasterListPrimeNgComponent,
+    // MasterListPrimeNgComponent,
     JsonFormsDetailComponent
   ],
   imports: [
