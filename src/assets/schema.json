@@ -6,72 +6,74 @@
       "type": "string",
       "pattern": "^[A-Z][a-z]*$",
       "minLength": 3,
-      "description": "Please enter your firstname"
+      "description": "Please enter your firstname",
+      "i18n": "firstname"
     },
     "lastname": {
       "type": "string",
       "pattern": "^[A-Z][a-z]*$",
       "minLength": 3,
-      "description": "Please enter your lastname"
+      "description": "Please enter your lastname",
+      "i18n": "lastname"
     },
     "phoneNumber": {
       "type": "string",
       "pattern": "^\\+420\\d{9}$",
       "minLength": 13,
-      "description": "Please enter your phoneNumber"
+      "description": "Please enter your phoneNumber",
+      "i18n": "phoneNumber"
     },
     "email": {
       "type": "string",
       "format": "email",
       "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
-      "description": "Please enter your email"
+      "description": "Please enter your email",
+      "i18n": "email"
     },
     "pickerDate": {
       "type": "string",
       "format": "date",
-      "description": "Please select date"
+      "description": "Please select date",
+      "i18n": "pickerDate"
     },
     "postCode": {
       "type": "string",
       "pattern": "^[0-9]\\d{5}$",
-      "description": "Please enter postCode"
+      "description": "Please enter postCode",
+      "i18n": "postCode"
     },
     "nameBuilding": {
       "type": "string",
       "pattern": "^[A-Z][a-z]*$",
-      "description": "Please enter nameBuilding"
+      "description": "Please enter nameBuilding",
+      "i18n": "nameBuilding"
     },
     "hugeLabel": {
-      "type": "string"
+      "type": "string",
+      "i18n": "hugeLabel"
     },
     "smallLabel": {
-      "type": "string"
+      "type": "string",
+      "i18n": "smallLabel"
     },
     "fileUpload": {
       "type": "string",
       "format": "file",
-      "pattern": "^[-\\w!?=%]+\\.(jpg|jpeg|png|pdf|doc|docx)$"
+      "pattern": "^[-\\w!?=%]+\\.(jpg|jpeg|png|pdf|doc|docx)$",
+      "i18n": "fileUpload"
 
     },
     "textArea": {
       "type": "string",
       "pattern": "^[a-zA-Z0-9._%+-]$",
-      "description": "Please enter your massage"
+      "description": "Please enter your massage",
+      "i18n": "textArea"
     },
     "done": {
-      "type": "boolean"
+      "type": "boolean",
+      "i18n": "done"
     }
   },
-  "required": ["firstname", "lastname", "phoneNumber", "email", "pickerDate", "postCode", "nameBuilding", "done"],
-  "errorMessages": {
-    "firstname": "First name is required",
-    "lastname": "Last name is required",
-    "phoneNumber": "Phone number is required",
-    "email": "Email is required",
-    "pickerDate": "Date is required",
-    "postCode": "Postal code is required",
-    "nameBuilding": "Building name is required",
-    "done": "This field is required"
-  }
 
+  "required": ["firstname", "lastname", "phoneNumber", "email", "pickerDate", "postCode", "nameBuilding", "done"]
 }

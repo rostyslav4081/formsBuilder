@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { JsonFormsAngularService, JsonFormsControl } from '@jsonforms/angular';
 import { isStringControl, RankedTester, rankWith } from '@jsonforms/core';
+import {error} from "protractor";
 
 
 @Component({
@@ -18,7 +19,7 @@ import { isStringControl, RankedTester, rankWith } from '@jsonforms/core';
         (focusout)="focused = false"
       />
       <small *ngIf="description && (shouldShowUnfocusedDescription() || focused)">{{ description }}</small>
-      <small>{{ error }}</small>
+      <small>{{ error}}</small>
     </div>
 
   `,

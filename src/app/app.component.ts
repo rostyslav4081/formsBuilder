@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, Input, input} from '@angular/core';
 import { angularMaterialRenderers } from '@jsonforms/angular-material';
 import {
   and,
   createAjv,
-  isControl,
+  isControl, JsonFormsI18nState,
   JsonSchema,
   optionIs,
   rankWith,
@@ -27,6 +27,7 @@ import { angularPrimeNgRenderers } from './primengrenders';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+
   renderers = [
     // ...angularMaterialRenderers,
     ...angularPrimeNgRenderers,
@@ -34,7 +35,16 @@ export class AppComponent {
   uischema = uischemaAsset;
   schema = schemaAsset;
   data: any;
-  i18n = { locale: 'cz-CZ' };
+  locale: 'cz' | 'en' | 'de'= 'cz';
+  createTranslator(locale: 'cz'|'de' | 'en'): (key: string, defaultMessage: string) => string {
+    return (key: string, defaultMessage: string) => {
+      console.log(`Locale: ${locale}, Key: ${key}, Default Message: ${defaultMessage}`);
+      return defaultMessage;
+    };
+  }
+
+  i18n = { locale: this.locale,translate:this.createTranslator('cz')}
+
   dateAdapter;
   ajv = createAjv({
     schemaId: 'id',
@@ -48,6 +58,8 @@ export class AppComponent {
     this.dateAdapter = dateAdapter;
     dateAdapter.setLocale(this.i18n.locale);
 
+
+    console.log(this.i18n)
     this.ajv.addFormat('tel', (maybePhoneNumber) => {
       try {
         parsePhoneNumber(maybePhoneNumber, 'CZ');
