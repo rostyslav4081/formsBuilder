@@ -35,15 +35,15 @@ export class AppComponent {
   uischema = uischemaAsset;
   schema = schemaAsset;
   data: any;
-  locale: 'cz' | 'en' | 'de'= 'cz';
-  createTranslator(locale: 'cz'|'de' | 'en'): (key: string, defaultMessage: string) => string {
-    return (key: string, defaultMessage: string) => {
-      console.log(`Locale: ${locale}, Key: ${key}, Default Message: ${defaultMessage}`);
-      return defaultMessage;
+  locale: 'cz' | 'en' | 'de' = 'cz';
+  createTranslator(locale: 'cz' | 'de' | 'en'): (key: string, defaultMessage: string | undefined, context: any) => string {
+    return (key: string, defaultMessage: string | undefined, context: any) => {
+      console.log(`Locale: ${locale}, Key: ${key}, Default Message: ${defaultMessage}, Context: ${context}`);
+      return defaultMessage || '';
     };
   }
+  i18n = { locale: this.locale, translate: this.createTranslator(this.locale) };
 
-  i18n = { locale: this.locale,translate:this.createTranslator('cz')}
 
   dateAdapter;
   ajv = createAjv({
@@ -59,7 +59,7 @@ export class AppComponent {
     dateAdapter.setLocale(this.i18n.locale);
 
 
-    console.log(this.i18n)
+
     this.ajv.addFormat('tel', (maybePhoneNumber) => {
       try {
         parsePhoneNumber(maybePhoneNumber, 'CZ');

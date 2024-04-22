@@ -6,46 +6,46 @@
       "type": "string",
       "pattern": "^[A-Z][a-z]*$",
       "minLength": 3,
-      "description": "Please enter your firstname",
+      "description": "Prosím zadejte své křestní jméno",
       "i18n": "firstname"
     },
     "lastname": {
       "type": "string",
       "pattern": "^[A-Z][a-z]*$",
       "minLength": 3,
-      "description": "Please enter your lastname",
+      "description": "Prosím zadejte své příjmení",
       "i18n": "lastname"
     },
     "phoneNumber": {
       "type": "string",
       "pattern": "^\\+420\\d{9}$",
       "minLength": 13,
-      "description": "Please enter your phoneNumber",
+      "description": "Zadejte své telefonní číslo",
       "i18n": "phoneNumber"
     },
     "email": {
       "type": "string",
       "format": "email",
       "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
-      "description": "Please enter your email",
+      "description": "Zadejte prosím svůj email",
       "i18n": "email"
     },
     "pickerDate": {
       "type": "string",
       "format": "date",
-      "description": "Please select date",
+      "description": "Vyberte prosím datum",
       "i18n": "pickerDate"
     },
     "postCode": {
       "type": "string",
       "pattern": "^[0-9]\\d{5}$",
-      "description": "Please enter postCode",
+      "description": "Zadejte PSČ",
       "i18n": "postCode"
     },
     "nameBuilding": {
       "type": "string",
       "pattern": "^[A-Z][a-z]*$",
-      "description": "Please enter nameBuilding",
+      "description": "Zadejte obec stavby",
       "i18n": "nameBuilding"
     },
     "hugeLabel": {
@@ -66,7 +66,7 @@
     "textArea": {
       "type": "string",
       "pattern": "^[a-zA-Z0-9._%+-]$",
-      "description": "Please enter your massage",
+      "description": "Zadejte prosím svou masáž",
       "i18n": "textArea"
     },
     "done": {
