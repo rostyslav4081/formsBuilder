@@ -56,14 +56,27 @@
       "type": "string",
       "i18n": "smallLabel"
     },
-    "fileUpload": {
-      "type": "string",
-      "format": "file",
-      "pattern": "^[-\\w!?=%]+\\.(jpg|jpeg|png|pdf|doc|docx)$",
-      "i18n": "fileUpload"
+"fileUpload": {
+  "title": "Files",
+  "type": "object",
+  "properties": {
+    "type": "string",
+    "format": "file",
+    "pattern": "^[-\\w!?=%]+\\.(jpg|jpeg|png|pdf|doc|docx)$",
+    "i18n": "fileUpload"
+  },
+    "files": {
+      "type": "array",
+      "title": "Multiple files",
+      "items": {
+        "type": "string",
+        "format": "data-url"
+      }
+    }
+  }
+},
 
-    },
-    "textArea": {
+"textArea": {
       "type": "string",
       "pattern": "^[a-zA-Z0-9._%+-]$",
       "description": "Zadejte prosím svou masáž",
@@ -72,8 +85,8 @@
     "done": {
       "type": "boolean",
       "i18n": "done"
-    }
-  },
+    },
+
 
   "required": ["firstname", "lastname", "phoneNumber", "email", "pickerDate", "postCode", "nameBuilding", "done"]
 }

@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, ViewChild } from '@angular/core';
 import { JsonFormsAngularService, JsonFormsControl } from '@jsonforms/angular';
-import {and, formatIs, isMultiLineControl, isObjectControl, RankedTester, rankWith, schemaTypeIs, scopeEndsWith} from '@jsonforms/core';
+import { and, formatIs, isMultiLineControl, isObjectControl, RankedTester, rankWith, schemaTypeIs, scopeEndsWith } from '@jsonforms/core';
+import { FormArray } from '@angular/forms';
 
 interface FileData {
   data: string;
@@ -11,18 +12,24 @@ interface FileData {
 @Component({
   selector: 'FileInputRenderer',
   template: `
-    <div [ngStyle]="{ display: hidden ? 'none' : '' }" class="input-control">
-      <label>{{ label }}</label>
+    <div *ngIf="!hidden" class="input-control">
 
-      <input
-        type="file"
-        (input)="onChange($event)"
-        [id]="id"
-        hidden
-        #fileInput
-      />
-      <button pButton label="Vybrat soubor" (click)="fileInput.click()"></button>
+      <div formArrayName="files">
+        <label>{{ label }}</label>
 
+        <input
+          type="file"
+          (input)="onChange($event)"
+          [id]="id"
+          *ngIf="!hidden"
+          #fileInput
+        />
+      </div>
+      <button pButton label="Vybrat soubor" (click)="fileInputClick()"></button>
+      <div *ngFor="let file of filesArray.controls; let i = index">
+        <label>{{ file.value.name }}</label>
+        <button type="button" (click)="removeFile(i)">Remove</button>
+      </div>
       <small *ngIf="shouldShowUnfocusedDescription() || focused">{{ description }}</small>
       <small>{{ error }}</small>
     </div>
@@ -30,7 +37,7 @@ interface FileData {
   `,
   styles: [
     `
-       .input-control {
+      .input-control {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
@@ -42,12 +49,20 @@ interface FileData {
 })
 export class FileInputPrimeNgRenderer extends JsonFormsControl {
   focused = false;
+  @ViewChild('fileInput') fileInputElement?: ElementRef<HTMLInputElement>;
 
   override data: FileData | undefined;
 
   constructor(jsonformsService: JsonFormsAngularService) {
     super(jsonformsService);
+  }
 
+  get filesArray(): FormArray {
+    return this.form.get('files') as FormArray;
+  }
+
+  removeFile(index: number) {
+    this.filesArray.removeAt(index);
   }
 
   file2Base64(file: File): Promise<string> {
@@ -72,6 +87,12 @@ export class FileInputPrimeNgRenderer extends JsonFormsControl {
   }
 
   override getEventValue = (event: any) => this.data;
+
+  fileInputClick() {
+    if (this.fileInputElement) {
+      this.fileInputElement.nativeElement.click();
+    }
+  }
 }
 
 export const FileInputPrimeNgRendererTester: RankedTester = rankWith(
