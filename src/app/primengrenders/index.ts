@@ -17,6 +17,7 @@ import {
   CategorizationTabLayoutPrimeNgRenderer
 } from "./layouts/categorization-layout.renderer";
 import {ArrayLayoutPrimeNgRenderer, ArrayLayoutPrimeNgRendererTester} from "./layouts/array-layout.renderer";
+import {TablePrimeNgRenderer, TablePrimeNgRendererTester} from "./controls/table.renderer";
 
 export const angularPrimeNgRenderers: {
   tester: RankedTester;
@@ -37,5 +38,5 @@ export const angularPrimeNgRenderers: {
   // { tester: ArrayLayoutPrimeNgRendererTester, renderer: ArrayLayoutPrimeNgRenderer },
   // { tester: categorizationPrimeNgTester, renderer: CategorizationTabLayoutPrimeNgRenderer },
   { tester: LabelPrimeNgRendererTester, renderer: LabelPrimeNgRenderer },
-
+  { tester: TablePrimeNgRendererTester, renderer: TablePrimeNgRenderer },
 ];

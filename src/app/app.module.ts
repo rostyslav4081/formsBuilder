@@ -43,6 +43,12 @@ import {GroupLayoutPrimeNgRenderer} from "./primengrenders/layouts/group-layout.
 import {ArrayLayoutPrimeNgRenderer} from "./primengrenders/layouts/array-layout.renderer";
 import {CategorizationTabLayoutPrimeNgRenderer} from "./primengrenders/layouts/categorization-layout.renderer";
 import {TabViewModule} from "primeng/tabview";
+import {TablePrimeNgRenderer} from "./primengrenders/controls/table.renderer";
+import {TableModule} from "primeng/table";
+import {MasterListPrimeNgComponent} from "./primengrenders/controls/master";
+import {SplitterModule} from "primeng/splitter";
+import {ListboxModule} from "primeng/listbox";
+import {JsonFormsDetailComponent} from "./primengrenders/controls/detail";
 
 
 
@@ -65,7 +71,10 @@ import {TabViewModule} from "primeng/tabview";
     ObjectPrimeNgControlRenderer,
     GroupLayoutPrimeNgRenderer,
     ArrayLayoutPrimeNgRenderer,
-    CategorizationTabLayoutPrimeNgRenderer
+    CategorizationTabLayoutPrimeNgRenderer,
+    TablePrimeNgRenderer,
+    MasterListPrimeNgComponent,
+    JsonFormsDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -87,6 +96,9 @@ import {TabViewModule} from "primeng/tabview";
     InputTextareaModule,
     CardModule,
     TabViewModule,
+    TableModule,
+    SplitterModule,
+    ListboxModule,
 
 
   ],
