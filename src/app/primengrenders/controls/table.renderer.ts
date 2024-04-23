@@ -1,5 +1,33 @@
+/*
+  The MIT License
+
+  Copyright (c) 2017-2019 EclipseSource Munich
+  https://github.com/eclipsesource/jsonforms
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  THE SOFTWARE.
+*/
+import startCase from 'lodash/startCase';
 import { Component, OnInit } from '@angular/core';
-import { JsonFormsAngularService, JsonFormsArrayControl } from '@jsonforms/angular';
+import {
+  JsonFormsAngularService,
+  JsonFormsArrayControl,
+} from '@jsonforms/angular';
 import {
   ArrayControlProps,
   ArrayTranslations,
@@ -19,48 +47,42 @@ import {
   setReadonly,
   UISchemaElement,
 } from '@jsonforms/core';
-import startCase from "lodash/startCase";
 
 @Component({
   selector: 'TableRenderer',
   template: `
-    <p-table [value]="data" [styleClass]="'mat-elevation-z8'">
+    <p-table [value]="data" [rowTrackBy]="trackElement" class="mat-elevation-z8">
       <ng-template pTemplate="header">
         <tr>
           <th>
-            <button pButton type="button" icon="pi pi-plus" class="p-button-primary"
-                    (click)="add()" [disabled]="!isEnabled()" pTooltip="{{translations.addTooltip}}"
-                    tooltipPosition="top"></button>
+            <button pButton type="button" icon="pi pi-plus" class="p-button-primary" (click)="add()" [disabled]="!isEnabled()"
+                    pTooltip="{{ translations.addTooltip }}" tooltipPosition="top"></button>
           </th>
+          <th *ngFor="let item of items">{{ item.header }}</th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-row let-i="rowIndex" let-first="first" let-last="last">
+
+      <ng-template pTemplate="body" let-row let-rowData="rowData" let-i="rowIndex" let-first="first" let-last="last">
         <tr>
           <td>
             <button *ngIf="uischema?.options?.['showSortButtons']" pButton type="button" icon="pi pi-arrow-up"
                     class="p-button-success item-up"
                     (click)="up(i)" [disabled]="first" pTooltip="{{translations.upAriaLabel}}"
                     tooltipPosition="right"></button>
+
             <button *ngIf="uischema?.options?.['showSortButtons']" pButton type="button" icon="pi pi-arrow-down"
                     class="p-button-info item-down"
                     (click)="down(i)" [disabled]="last" pTooltip="{{translations.downAriaLabel}}"
                     tooltipPosition="right"></button>
 
-            <button pButton type="button" icon="pi pi-trash" class="p-button-danger"
-                    (click)="remove(i)" [disabled]="!isEnabled()" pTooltip="{{translations.removeTooltip}}"
-                    tooltipPosition="right"></button>
           </td>
           <td *ngFor="let item of items">
             <jsonforms-outlet [renderProps]="getProps(i, item.props)"></jsonforms-outlet>
           </td>
         </tr>
       </ng-template>
-      <ng-template pTemplate="header" let-columns>
-        <tr>
-          <th *ngFor="let col of columns">{{ col.header }}</th>
-        </tr>
-      </ng-template>
     </p-table>
+
 
 
   `,
@@ -80,20 +102,6 @@ export class TablePrimeNgRenderer extends JsonFormsArrayControl implements OnIni
   constructor(jsonformsService: JsonFormsAngularService) {
     super(jsonformsService);
   }
-
-  override  ngOnInit() {
-    super.ngOnInit();
-
-    const { addItem, removeItems, moveUp, moveDown } =
-      mapDispatchToArrayControlProps(
-        this.jsonFormsService.updateCore.bind(this.jsonFormsService)
-      );
-    this.addItem = addItem || (() => () => {});
-    this.moveItemUp = moveUp || (() => () => {});
-    this.moveItemDown = moveDown || (() => () => {});
-    this.removeItems = removeItems || (() => () => {});
-  }
-
   trackElement(index: number, _element: any) {
     return index ? index : null;
   }
@@ -106,7 +114,6 @@ export class TablePrimeNgRenderer extends JsonFormsArrayControl implements OnIni
     }
     this.translations = props.translations;
   }
-
   getProps(index: number, props: OwnPropsOfRenderer): OwnPropsOfRenderer {
     const rowPath = props.path !== undefined ? Paths.compose(props.path, `${index}`) : '';
     return {
@@ -116,25 +123,34 @@ export class TablePrimeNgRenderer extends JsonFormsArrayControl implements OnIni
     };
   }
 
-
-
   remove(index: number): void {
     this.removeItems(this.propsPath, [index])();
   }
-
   add(): void {
     this.addItem(
       this.propsPath,
       createDefaultValue(this.scopedSchema, this.rootSchema)
     )();
   }
-
   up(index: number): void {
     this.moveItemUp(this.propsPath, index)();
   }
-
   down(index: number): void {
     this.moveItemDown(this.propsPath, index)();
+  }
+
+  override ngOnInit() {
+    super.ngOnInit();
+
+    const { addItem, removeItems, moveUp, moveDown } =
+      mapDispatchToArrayControlProps(
+        this.jsonFormsService.updateCore.bind(this.jsonFormsService)
+      );
+    this.addItem = addItem;
+    this.moveItemUp = moveUp || (() => () => {});
+    this.moveItemDown = moveDown || (() => () => {});
+    this.removeItems = removeItems || (() => () => {});
+
   }
 
   generateCells = (
@@ -159,7 +175,7 @@ export class TablePrimeNgRenderer extends JsonFormsArrayControl implements OnIni
         };
       });
     }
-
+    // needed to correctly render input control for multi attributes
     return [
       {
         property: 'DUMMY',
@@ -173,10 +189,8 @@ export class TablePrimeNgRenderer extends JsonFormsArrayControl implements OnIni
     ];
   };
 
-
   getValidColumnProps = (scopedSchema: JsonSchema) => {
-    if (scopedSchema.type === 'object' && scopedSchema.properties !== undefined) {
-
+    if (scopedSchema.properties !== undefined) {
       const properties = scopedSchema.properties;
       return Object.keys(properties).filter((prop) => {
         const types = deriveTypes(properties[prop]);
@@ -186,13 +200,11 @@ export class TablePrimeNgRenderer extends JsonFormsArrayControl implements OnIni
         return this.columnsToIgnore.indexOf(types[0]) === -1;
       });
     }
-
-    return [''];
+    // Handle the case where scopedSchema.properties is undefined
+    return [];
   };
 
-
 }
-
 export const TablePrimeNgRendererTester: RankedTester = rankWith(
   3,
   or(isObjectArrayControl, isPrimitiveArrayControl)

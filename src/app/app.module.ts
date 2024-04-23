@@ -43,12 +43,14 @@ import {GroupLayoutPrimeNgRenderer} from "./primengrenders/layouts/group-layout.
 import {ArrayLayoutPrimeNgRenderer} from "./primengrenders/layouts/array-layout.renderer";
 import {CategorizationTabLayoutPrimeNgRenderer} from "./primengrenders/layouts/categorization-layout.renderer";
 import {TabViewModule} from "primeng/tabview";
-import {TablePrimeNgRenderer} from "./primengrenders/controls/table.renderer";
+
 import {TableModule} from "primeng/table";
 // import {MasterListPrimeNgComponent} from "./primengrenders/controls/master";
 import {SplitterModule} from "primeng/splitter";
 import {ListboxModule} from "primeng/listbox";
 import {JsonFormsDetailComponent} from "./primengrenders/controls/detail";
+import {TablePrimeNgRenderer} from "./primengrenders/controls/table.renderer";
+
 
 
 
@@ -72,15 +74,17 @@ import {JsonFormsDetailComponent} from "./primengrenders/controls/detail";
     GroupLayoutPrimeNgRenderer,
     ArrayLayoutPrimeNgRenderer,
     CategorizationTabLayoutPrimeNgRenderer,
-    TablePrimeNgRenderer,
     // MasterListPrimeNgComponent,
-    JsonFormsDetailComponent
+    JsonFormsDetailComponent,
+    TablePrimeNgRenderer
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     JsonFormsModule,
     JsonFormsAngularMaterialModule,
+
+
 
     MatProgressSpinnerModule,
     HttpClientModule,
@@ -99,6 +103,8 @@ import {JsonFormsDetailComponent} from "./primengrenders/controls/detail";
     TableModule,
     SplitterModule,
     ListboxModule,
+
+
 
 
   ],

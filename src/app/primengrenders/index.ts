@@ -35,7 +35,7 @@ export const angularPrimeNgRenderers: {
   { tester: verticalLayoutPrimeNgTester, renderer: VerticalLayoutPrimeNgRenderer },
   // { tester: groupLayoutPrimeNgTester, renderer: GroupLayoutPrimeNgRenderer },
   { tester: horizontalLayoutPrimeNgTester, renderer: HorizontalLayoutPrimeNgRenderer },
-  // { tester: ArrayLayoutPrimeNgRendererTester, renderer: ArrayLayoutPrimeNgRenderer },
+  { tester: ArrayLayoutPrimeNgRendererTester, renderer: ArrayLayoutPrimeNgRenderer },
   // { tester: categorizationPrimeNgTester, renderer: CategorizationTabLayoutPrimeNgRenderer },
   { tester: LabelPrimeNgRendererTester, renderer: LabelPrimeNgRenderer },
   { tester: TablePrimeNgRendererTester, renderer: TablePrimeNgRenderer },
