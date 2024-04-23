@@ -50,6 +50,16 @@ import {SplitterModule} from "primeng/splitter";
 import {ListboxModule} from "primeng/listbox";
 import {JsonFormsDetailComponent} from "./primengrenders/controls/detail";
 import {TablePrimeNgRenderer} from "./primengrenders/controls/table.renderer";
+import {
+  MatCell, MatCellDef,
+  MatColumnDef,
+  MatHeaderCell,
+  MatHeaderCellDef,
+  MatHeaderRow, MatHeaderRowDef,
+  MatRow, MatRowDef,
+  MatTable
+} from "@angular/material/table";
+import {MatTooltip} from "@angular/material/tooltip";
 
 
 
@@ -85,7 +95,6 @@ import {TablePrimeNgRenderer} from "./primengrenders/controls/table.renderer";
     JsonFormsAngularMaterialModule,
 
 
-
     MatProgressSpinnerModule,
     HttpClientModule,
     JsonSchemaFormModule,
@@ -103,8 +112,17 @@ import {TablePrimeNgRenderer} from "./primengrenders/controls/table.renderer";
     TableModule,
     SplitterModule,
     ListboxModule,
-
-
+    MatTable,
+    MatTooltip,
+    MatRow,
+    MatHeaderRow,
+    MatColumnDef,
+    MatHeaderCell,
+    MatCell,
+    MatHeaderCellDef,
+    MatCellDef,
+    MatRowDef,
+    MatHeaderRowDef,
 
 
   ],

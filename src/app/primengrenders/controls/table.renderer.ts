@@ -45,43 +45,95 @@ import {
   RankedTester,
   rankWith,
   setReadonly,
-  UISchemaElement,
+
 } from '@jsonforms/core';
 
 @Component({
   selector: 'TableRenderer',
   template: `
-    <p-table [value]="data" [rowTrackBy]="trackElement" class="mat-elevation-z8">
-      <ng-template pTemplate="header">
+    <table
+      mat-table
+      [dataSource]="data"
+      class="mat-elevation-z8"
+      [trackBy]="trackElement"
+    >
+      <ng-container matColumnDef="action">
         <tr>
-          <th>
-            <button pButton type="button" icon="pi pi-plus" class="p-button-primary" (click)="add()" [disabled]="!isEnabled()"
-                    pTooltip="{{ translations.addTooltip }}" tooltipPosition="top"></button>
+          <th mat-header-cell *matHeaderCellDef>
+            <button
+              mat-button
+              color="primary"
+              (click)="add()"
+              [disabled]="!isEnabled()"
+              [matTooltip]="translations.upAriaLabel || ''"
+            >
+              <mat-icon>add</mat-icon>
+            </button>
           </th>
-          <th *ngFor="let item of items">{{ item.header }}</th>
         </tr>
-      </ng-template>
-
-      <ng-template pTemplate="body" let-row let-rowData="rowData" let-i="rowIndex" let-first="first" let-last="last">
         <tr>
-          <td>
-            <button *ngIf="uischema?.options?.['showSortButtons']" pButton type="button" icon="pi pi-arrow-up"
-                    class="p-button-success item-up"
-                    (click)="up(i)" [disabled]="first" pTooltip="{{translations.upAriaLabel}}"
-                    tooltipPosition="right"></button>
-
-            <button *ngIf="uischema?.options?.['showSortButtons']" pButton type="button" icon="pi pi-arrow-down"
-                    class="p-button-info item-down"
-                    (click)="down(i)" [disabled]="last" pTooltip="{{translations.downAriaLabel}}"
-                    tooltipPosition="right"></button>
-
-          </td>
-          <td *ngFor="let item of items">
-            <jsonforms-outlet [renderProps]="getProps(i, item.props)"></jsonforms-outlet>
+          <td
+            mat-cell
+            *matCellDef="
+              let row;
+              let i = index;
+              let first = first;
+              let last = last
+            "
+          >
+            <button
+              *ngIf="uischema?.options?.['showSortButtons']"
+              class="item-up"
+              mat-button
+              [disabled]="first"
+              (click)="up(i)"
+              [matTooltip]="translations.upAriaLabel || ''"
+              matTooltipPosition="right"
+            >
+              <mat-icon>arrow_upward</mat-icon>
+            </button>
+            <button
+              *ngIf="uischema?.options?.['showSortButtons']"
+              class="item-down"
+              mat-button
+              [disabled]="last"
+              (click)="down(i)"
+              [matTooltip]="translations.upAriaLabel || ''"
+              matTooltipPosition="right"
+            >
+              <mat-icon>arrow_downward</mat-icon>
+            </button>
+            <button
+              mat-button
+              color="warn"
+              (click)="remove(i)"
+              [disabled]="!isEnabled()"
+              matTooltipPosition="right"
+              [matTooltip]="translations.upAriaLabel || ''"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
           </td>
         </tr>
-      </ng-template>
-    </p-table>
+
+        <tr></tr
+        ></ng-container>
+
+      <ng-container
+        *ngFor="let item of items"
+        matColumnDef="{{ item.property }}"
+      >
+        <th mat-header-cell *matHeaderCellDef>{{ item.header }}</th>
+        <td mat-cell *matCellDef="let index = index">
+          <jsonforms-outlet
+            [renderProps]="getProps(index, item.props)"
+          ></jsonforms-outlet>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
 
 
 
@@ -89,7 +141,7 @@ import {
   styles: ['table {width: 100%;}', '.cdk-column-action { width: 15%}'],
 })
 export class TablePrimeNgRenderer extends JsonFormsArrayControl implements OnInit {
-  detailUiSchema!: UISchemaElement;
+
   displayedColumns!: string[];
   items!: ColumnDescription[];
   readonly columnsToIgnore = ['array', 'object'];
@@ -122,10 +174,10 @@ export class TablePrimeNgRenderer extends JsonFormsArrayControl implements OnIni
       path: rowPath,
     };
   }
-
   remove(index: number): void {
     this.removeItems(this.propsPath, [index])();
   }
+
   add(): void {
     this.addItem(
       this.propsPath,

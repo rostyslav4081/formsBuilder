@@ -64,8 +64,8 @@
         "pattern": "^[-\\w!?=%]+\\.(jpg|jpeg|png|pdf|doc|docx)$"
       },
       "i18n": "fileUpload"
-    }
-  ,
+    },
+
     "textArea": {
       "type": "string",
       "pattern": "^[a-zA-Z0-9._%+-]$",

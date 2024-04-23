@@ -2,7 +2,7 @@ import {Component, Input, input} from '@angular/core';
 import { angularMaterialRenderers } from '@jsonforms/angular-material';
 import {
   and,
-  createAjv,
+  createAjv, formatIs,
   isControl, JsonFormsI18nState,
   JsonSchema,
   optionIs,
@@ -21,6 +21,7 @@ import { DateAdapter } from '@angular/material/core';
 
 import { angularPrimeNgRenderers } from './primengrenders';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -31,6 +32,7 @@ export class AppComponent {
   renderers = [
     // ...angularMaterialRenderers,
     ...angularPrimeNgRenderers,
+
   ];
   uischema = uischemaAsset;
   schema = schemaAsset;
