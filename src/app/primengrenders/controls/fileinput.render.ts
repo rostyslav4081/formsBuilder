@@ -24,7 +24,7 @@ interface FileData {
       />
       <button pButton label="Vybrat soubor" (click)="fileInput.click()"></button>
       <small *ngIf="selectedFileName" style="text-align: center;">Vybrán soubor: {{ selectedFileName }}</small>
-
+      <small *ngIf="size" style="text-align: center;">Velikost: {{ size }}</small>
       <small *ngIf="shouldShowUnfocusedDescription() || focused">{{ description }}</small>
       <small>{{ error }}</small>
 <!--      <p-fileUpload name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php" (onUpload)="onChange($event)" [multiple]="true" accept="image/*" maxFileSize="1000000">-->
@@ -54,6 +54,7 @@ interface FileData {
 export class FileInputPrimeNgRenderer extends JsonFormsControl {
   focused = false;
   // uploadedFiles: File[] = [];
+  size!:string;
   selectedFileName!: string;
   override data: FileData | undefined;
 
@@ -74,6 +75,8 @@ export class FileInputPrimeNgRenderer extends JsonFormsControl {
   override async onChange(event: any) {
     const file: File = event.target.files[0];
     this.selectedFileName = file.name;
+    this.size = event.target.files[0].size;
+
     console.log(this.selectedFileName);
     console.log('Selected file:', file);
 
