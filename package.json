@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 4205 --host 0.0.0.0 --disable-host-check" ,
+    "start": "ng serve --port 4205 --host 0.0.0.0 --disable-host-check",
     "build": "ng build --configuration production --base-href='/form-builder/'",
     "test": "ng test",
     "lint": "ng lint",
@@ -32,6 +32,7 @@
     "libphonenumber-js": "^1.10.60",
     "lodash": "^4.17.21",
     "path": "^0.12.7",
+    "primeicons": "^7.0.0",
     "primeng": "^17.13.0",
     "random-words": "^2.0.1",
     "rxjs": "^7.8.1",

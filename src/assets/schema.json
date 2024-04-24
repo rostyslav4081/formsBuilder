@@ -61,7 +61,7 @@
       "items": {
         "type": "string",
         "format": "file",
-        "pattern": "^[-\\w!?=%]+\\.(jpg|jpeg|png|pdf|doc|docx)$"
+        "pattern": "^[-\\w!?=%]+\\.(jpg|jpeg|png|pdf|doc|docx|txt)$"
       },
       "i18n": "fileUpload"
     },
