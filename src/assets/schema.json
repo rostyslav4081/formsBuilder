@@ -44,7 +44,8 @@
     },
     "nameBuilding": {
       "type": "string",
-      "pattern": "^[A-Z][a-z]*$",
+      "maxLength": 100,
+      "pattern": "^[A-Z][a-zA-Z]*$",
       "description": "Zadejte obec stavby",
       "i18n": "nameBuilding"
     },
@@ -68,6 +69,7 @@
 
     "textArea": {
       "type": "string",
+      "maxLength": 500,
       "pattern": "^[a-zA-Z0-9._%+-]$",
       "description": "Zadejte prosím svou masáž",
       "i18n": "textArea"
