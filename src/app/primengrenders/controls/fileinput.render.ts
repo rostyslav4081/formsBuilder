@@ -13,7 +13,7 @@ interface FileData {
   template: `
     <div [ngStyle]="{ display: hidden ? 'none' : '' }" class="input-control">
 
-      <label>{{ label }}</label>
+      <label>{{ data }}</label>
 
       <input
         type="file"
@@ -23,6 +23,7 @@ interface FileData {
         #fileInput
       />
       <button pButton label="Vybrat soubor" (click)="fileInput.click()"></button>
+
       <small *ngIf="selectedFileName" style="text-align: center;">Vybrán soubor: {{ selectedFileName }}</small>
       <small *ngIf="size" style="text-align: center;">Velikost: {{ size + 'mB' }}</small>
       <small *ngIf="shouldShowUnfocusedDescription() || focused">{{ description }}</small>

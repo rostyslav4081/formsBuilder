@@ -5,7 +5,7 @@ import {
   createAjv, formatIs,
   isControl, JsonFormsI18nState,
   JsonSchema,
-  optionIs,
+  optionIs, RankedTester,
   rankWith,
   schemaTypeIs,
   scopeEndsWith,
@@ -20,8 +20,13 @@ import { parsePhoneNumber } from 'libphonenumber-js';
 import { DateAdapter } from '@angular/material/core';
 
 import { angularPrimeNgRenderers } from './primengrenders';
+import {FileInputPrimeNgRenderer} from "./primengrenders/controls/fileinput.render";
 
 
+// const FileInputPrimeNgRendererTester: Tester = and(
+//   schemaTypeIs('string'),
+//   formatIs('file')
+// );
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -32,7 +37,7 @@ export class AppComponent {
   renderers = [
     // ...angularMaterialRenderers,
     ...angularPrimeNgRenderers,
-
+    // {tester: rankWith(5, FileInputPrimeNgRendererTester), renderer: FileInputPrimeNgRenderer }
   ];
   uischema = uischemaAsset;
   schema = schemaAsset;

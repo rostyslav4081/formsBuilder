@@ -51,155 +51,155 @@ interface DataRow {
   value: string;
 }
 // start primeNg
-// @Component({
-//   selector: 'TableRenderer',
-//   template: `
-//     <p-table [value]="getMyData" class="p-datatable">
-//
-//       <ng-template pTemplate="header">
-//         <tr>
-//           <th *ngFor="let item of items">{{ item.header }}</th>
-//           <th>
-//             <button pButton type="button" icon="pi pi-plus" (click)="add()" [disabled]="!isEnabled()"
-//                     pTooltip="{{translations.upAriaLabel || ''}}" tooltipPosition="right">
-//             </button>
-//
-//           </th>
-//         </tr>
-//       </ng-template>
-//       <ng-template pTemplate="body" let-row let-i="rowIndex">
-//         <tr *ngIf="i < 10">
-//
-//
-//           <td *ngFor="let item of items">
-//             <jsonforms-outlet [renderProps]="getProps(i, item.props)"></jsonforms-outlet>
-//
-//           </td>
-//           <td>
-//             <div class="button-container">
-//               <button pButton type="button" icon="pi pi-arrow-up"
-//                       (click)="up(i)" [disabled]="i === 0" pTooltip="{{translations.upAriaLabel || ''}}"
-//                       tooltipPosition="right"></button>
-//               <button pButton type="button" icon="pi pi-arrow-down"
-//                       (click)="down(i)" [disabled]="i === data.length - 1"
-//                       pTooltip="{{translations.upAriaLabel || ''}}" tooltipPosition="right"></button>
-//               <button pButton type="button" icon="pi pi-trash" (click)="remove(i)"
-//                       pTooltip="{{translations.upAriaLabel || ''}}" tooltipPosition="right"></button>
-//             </div>
-//           </td>
-//         </tr>
-//         <tr *ngIf="i == 9">
-//           <td>
-//             <p>Maximální počet vstupních souborů 10</p>
-//           </td>
-//         </tr>
-//       </ng-template>
-//     </p-table>
-//
-//
-//
-//
-//
-//   `,
-//   styles: ['table {width: 100%;}', '.cdk-column-action { width: 15%}',
-//     `.button-container {
-//     display: inline-flex;
-//     gap: 5px;
-//         }`],
-// })
-// matUI
 @Component({
   selector: 'TableRenderer',
   template: `
-    <table
-      mat-table
-      [dataSource]="data"
-      class="mat-elevation-z8"
-      [trackBy]="trackElement"
-    >
-      <ng-container matColumnDef="action">
+    <p-table [value]="getMyData" class="p-datatable">
+
+      <ng-template pTemplate="header">
         <tr>
-          <th mat-header-cell *matHeaderCellDef>
-            <button
-              mat-button
-              color="primary"
-              (click)="add()"
-              [disabled]="!isEnabled()"
-              [matTooltip]="translations.upAriaLabel || ''"
-            >
-              <mat-icon>add</mat-icon>
+          <th *ngFor="let item of items">{{ item.header }}</th>
+          <th>
+            <button  *ngIf="uischema?.options?.['showSortButtons']" pButton type="button" icon="pi pi-plus" (click)="add()" [disabled]="!isEnabled()"
+                    pTooltip="{{translations.upAriaLabel || ''}}" tooltipPosition="right">
             </button>
+
           </th>
         </tr>
-        <tr>
-          <td
-            mat-cell
-            *matCellDef="
-              let row;
-              let i = index;
-              let first = first;
-              let last = last
-            "
-          >
-            <button
-              *ngIf="uischema?.options?.['showSortButtons']"
-              class="item-up"
-              mat-button
-              [disabled]="first"
-              (click)="up(i)"
-              [matTooltip]="translations.upAriaLabel || ''"
-              matTooltipPosition="right"
-            >
-              <mat-icon>arrow_upward</mat-icon>
-            </button>
-            <button
-              *ngIf="uischema?.options?.['showSortButtons']"
-              class="item-down"
-              mat-button
-              [disabled]="last"
-              (click)="down(i)"
-              [matTooltip]="translations.upAriaLabel || ''"
-              matTooltipPosition="right"
-            >
-              <mat-icon>arrow_downward</mat-icon>
-            </button>
-            <button
-              mat-button
-              color="warn"
-              (click)="remove(i)"
-              [disabled]="!isEnabled()"
-              matTooltipPosition="right"
-              [matTooltip]="translations.upAriaLabel || ''"
-            >
-              <mat-icon>delete</mat-icon>
-            </button>
+      </ng-template>
+      <ng-template pTemplate="body" let-row let-i="rowIndex">
+        <tr *ngIf="i < 10">
+
+
+          <td *ngFor="let item of items">
+            <jsonforms-outlet [renderProps]="getProps(i, item.props)"></jsonforms-outlet>
+                <div>{{item|json}}</div>
+          </td>
+          <td>
+            <div class="button-container">
+              <button   pButton type="button" icon="pi pi-arrow-up"
+                      (click)="up(i)" [disabled]="i === 0" pTooltip="{{translations.upAriaLabel || ''}}"
+                      tooltipPosition="right"></button>
+              <button  pButton type="button" icon="pi pi-arrow-down"
+                      (click)="down(i)" [disabled]="i === data.length - 1"
+                      pTooltip="{{translations.upAriaLabel || ''}}" tooltipPosition="right"></button>
+              <button   pButton type="button" icon="pi pi-trash" (click)="remove(i)"
+                      pTooltip="{{translations.upAriaLabel || ''}}" tooltipPosition="right"></button>
+            </div>
           </td>
         </tr>
+        <tr *ngIf="i == 9">
+          <td>
+            <p>Maximální počet vstupních souborů 10</p>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
 
-        <tr></tr
-        ></ng-container>
 
-      <ng-container
-        *ngFor="let item of items"
-        matColumnDef="{{ item.property }}"
-      >
-        <th mat-header-cell *matHeaderCellDef>{{ item.header }}</th>
-        <td mat-cell *matCellDef="let index = index">
-          <jsonforms-outlet
-            [renderProps]="getProps(index, item.props)"
-          ></jsonforms-outlet>
-        </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    </table>
 
 
 
   `,
-  styles: ['table {width: 100%;}', '.cdk-column-action { width: 15%}'],
+  styles: ['table {width: 100%;}', '.cdk-column-action { width: 15%}',
+    `.button-container {
+    display: inline-flex;
+    gap: 5px;
+        }`],
 })
+// matUI
+// @Component({
+//   selector: 'TableRenderer',
+//   template: `
+//     <table
+//       mat-table
+//       [dataSource]="data"
+//       class="mat-elevation-z8"
+//       [trackBy]="trackElement"
+//     >
+//       <ng-container matColumnDef="action">
+//         <tr>
+//           <th mat-header-cell *matHeaderCellDef>
+//             <button
+//               mat-button
+//               color="primary"
+//               (click)="add()"
+//               [disabled]="!isEnabled()"
+//               [matTooltip]="translations.upAriaLabel || ''"
+//             >
+//               <mat-icon>add</mat-icon>
+//             </button>
+//           </th>
+//         </tr>
+//         <tr>
+//           <td
+//             mat-cell
+//             *matCellDef="
+//               let row;
+//               let i = index;
+//               let first = first;
+//               let last = last
+//             "
+//           >
+//             <button
+//               *ngIf="uischema?.options?.['showSortButtons']"
+//               class="item-up"
+//               mat-button
+//               [disabled]="first"
+//               (click)="up(i)"
+//               [matTooltip]="translations.upAriaLabel || ''"
+//               matTooltipPosition="right"
+//             >
+//               <mat-icon>arrow_upward</mat-icon>
+//             </button>
+//             <button
+//               *ngIf="uischema?.options?.['showSortButtons']"
+//               class="item-down"
+//               mat-button
+//               [disabled]="last"
+//               (click)="down(i)"
+//               [matTooltip]="translations.upAriaLabel || ''"
+//               matTooltipPosition="right"
+//             >
+//               <mat-icon>arrow_downward</mat-icon>
+//             </button>
+//             <button
+//               mat-button
+//               color="warn"
+//               (click)="remove(i)"
+//               [disabled]="!isEnabled()"
+//               matTooltipPosition="right"
+//               [matTooltip]="translations.upAriaLabel || ''"
+//             >
+//               <mat-icon>delete</mat-icon>
+//             </button>
+//           </td>
+//         </tr>
+//
+//         <tr></tr
+//         ></ng-container>
+//
+//       <ng-container
+//         *ngFor="let item of items"
+//         matColumnDef="{{ item.property }}"
+//       >
+//         <th mat-header-cell *matHeaderCellDef>{{ item.header }}</th>
+//         <td mat-cell *matCellDef="let index = index">
+//           <jsonforms-outlet
+//             [renderProps]="getProps(index, item.props)"
+//           ></jsonforms-outlet>
+//         </td>
+//       </ng-container>
+//
+//       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+//       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+//     </table>
+//
+//
+//
+//   `,
+//   styles: ['table {width: 100%;}', '.cdk-column-action { width: 15%}'],
+// })
 export class TablePrimeNgRenderer extends JsonFormsArrayControl implements OnInit {
   override data: string[] = [];
 

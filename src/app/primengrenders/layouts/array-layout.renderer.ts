@@ -49,7 +49,7 @@ import {
       <p *ngIf="noData">{{ translations.noDataMessage }}</p>
       <div
         *ngFor="
-          let item of data;
+          let item of [].constructor(data);
           let idx = index;
           trackBy: trackByFn;
           last as last;

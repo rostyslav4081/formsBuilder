@@ -57,19 +57,26 @@
       "type": "string",
       "i18n": "smallLabel"
     },
+    "Field1": {
+      "type": "string"
+    },
+    "Field2": {
+      "type": "number"
+    },
     "fileUpload": {
       "type": "array",
       "items": {
         "type": "string",
-        "format": "file",
-        "pattern": "^[-\\w!?=%]+\\.(jpg|jpeg|png|pdf|doc|docx|txt)$"
+        "format": "file"
+
+
       },
       "i18n": "fileUpload"
     },
 
     "textArea": {
       "type": "string",
-      "maxLength": 500,
+      "maxLength": 400,
       "pattern": "^[a-zA-Z0-9._%+-]$",
       "description": "Zadejte prosím svou masáž",
       "i18n": "textArea"
